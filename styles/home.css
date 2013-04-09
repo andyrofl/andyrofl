@@ -1,0 +1,36 @@
+#twitterfeed{
+	width:200px;
+	height:450px;
+	float:right;
+	background-color:#AABBA9;
+}
+#shortbio{
+	
+}
+#recentposts{
+	min-height:500px;
+	opacity:1.0;
+}
+#left{
+	float:left;
+	text-align:center;
+	max-width:60%;
+}
+#right{
+	float:right;
+	width:200px;
+}
+div.post{
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-khtml-border-radius: 20px;
+	border-radius: 20px;
+	background-color:00FFAB;
+}
+p.postcontent{
+	font-size:16px;
+	text-align:left;
+}
+span.dateposted{
+	font-size:12px;
+}

@@ -1,0 +1,10 @@
+.settings
+.git
+.buildpath
+.project
+sql.php
+privacypolicy.txt
+robots.txt
+portfolio/*
+cdn/*
+admin/sql.php

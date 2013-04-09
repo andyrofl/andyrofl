@@ -1,0 +1,61 @@
+BODY{
+	background-image:url('/cdn/background.jpg');
+}
+#main{
+	width:100%;
+}
+#header{
+	height:150px;
+	width:100%;
+	opacity:0.3;
+	border-radius:15px;
+	background-image:url('/cdn/noise.png');
+}
+#content{
+	min-height:800px;
+	width:100%;
+	opacity:0.3;
+	border-radius:15px;
+	background-image:url('/cdn/noise.png');
+}
+#footer{
+	height:100px;
+	width:100%;
+	opacity:0.3;
+	border-radius:15px;
+	background-image:url('/cdn/noise.png');
+}
+#largelinks{
+	float:left;
+	height:20px;
+}
+div.largelink{
+	float:left;
+	margin-right:10px;
+}
+#search{
+	width:440px;
+	height:100px;
+}
+#smalllinks{
+	height:10px;
+	width:435px;
+}
+div.smalllink{
+	float:left;
+	height:10px;
+}
+#searchlinkbox{
+	width:450px;
+	height:130px;
+	float:right;
+}
+span.largeText{
+	font-size:25px;
+}
+span.largerText{
+	font-size:40px;
+}
+span.smallText{
+	font-size:15px;
+}
