@@ -2,7 +2,7 @@
 	include('sql.php');
 
 	$res = mysql_fetch_array(mysql_query('SELECT * FROM resources WHERE id=1'));
-	$post_result = mysql_query('SELECT * FROM blogcache ORDER BY date DESC LIMIT 3');
+	$post_result = mysql_query('SELECT * FROM blog ORDER BY date DESC LIMIT 3');
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -34,7 +34,8 @@
 				</div>
 				<div id='right'>
 					<div id='syndicate'>
-						<!-- rss feed, follow button, link to contact page -->
+						<a class='twitter-timeline' href='https://twitter.com/AndyroflZZ' data-widget-id='322008644944269313'>Tweets by @AndyroflZZ</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 					</div>
 				</div>
 			</div>

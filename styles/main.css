@@ -1,5 +1,5 @@
 BODY{
-	background-image:url('/cdn/background.jpg');
+	background-color:#000000;
 }
 #main{
 	width:100%;
@@ -7,23 +7,19 @@ BODY{
 #header{
 	height:150px;
 	width:100%;
-	opacity:0.3;
 	border-radius:15px;
-	background-image:url('/cdn/noise.png');
+	background-color:#B3002D;
 }
 #content{
 	min-height:800px;
 	width:100%;
-	opacity:0.3;
 	border-radius:15px;
-	background-image:url('/cdn/noise.png');
 }
 #footer{
 	height:100px;
 	width:100%;
-	opacity:0.3;
 	border-radius:15px;
-	background-image:url('/cdn/noise.png');
+	background-color:#B3002D;
 }
 #largelinks{
 	float:left;
