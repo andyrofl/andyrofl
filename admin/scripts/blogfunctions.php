@@ -1,9 +1,5 @@
 <?php
-	$con = mysql_connect($mysql_host, $mysql_user, $mysql_password);
-	if (!$con){
-		die('Could not connect: ' . mysql_error());
-	}
-	mysql_select_db($mysql_database, $con);
+	include('../sql.php');
 	include('../scripts/validateinput.php');
 
 	/**
@@ -16,16 +12,27 @@
 	 * @return String representing success or failure
 	 */
 	function postBlog($U_description, $U_category, $U_content, $U_title, $U_tags){
-		$S_DATE = 'NOW()';
+		$S_date = NOW();
+		$S_description = makesafe($U_description);
+		$S_category = makesafe($U_category);
+		$S_content = makesafe($U_content);
+		$S_title = makesafe($U_title);
+		$S_tags = makesafe($U_tags);
+		$S_id = mysql_fetch_assoc(mysql_query('SELECT id from blogcache ORDER BY date ASC LIMIT 1'));
 		
-		$oldpost = mysql_query('SELECT * FROM blogcache ORDER BY date DESC LIMIT 1');
-		$affected_rows = mysql_query('UPDATE blogcache SET description ='.makesafe($U_description).', date=\'\', category='.makesafe($U_category).', content='.makesafe($U_content).', title='.makesafe($U_title).', tags='.makesafe($U_tags).' WHERE id='.$oldpost['id']);
-		//save old post to blog archive
-		//$affected_rows2 = mysql_query('INSERT INTO blog values() ='.makesafe($U_description).', date=\'\', category='.makesafe($U_category).', content='.makesafe($U_content).', title='.makesafe($U_title).', tags='.makesafe($U_tags).' WHERE id='.$oldpost['id']);
-		if($affected_rows == 1){
+		$cacheResult = mysql_query("UPDATE blogcache SET description ='$S_description', date='$S_date', category='$S_category', content='$S_content', title='$S_title', tags='$S_tags' WHERE id=$S_id");
+		$postResult = mysql_query("INSERT INTO blog (description, date, category, content, title, tags) VALUES ('$S_description', '$S_date', '$S_category', '$S_content', '$S_title', '$S_tags')");
+		
+		if($cacheResult == 1 && $postResult == 1){
 			return 'post success';
 		}
-		return 'post failed';
+		else if($cacheResult == 1){
+			return 'blog post returned '.$postResult.' changed rows';
+		}
+		else if($postResult == 1){
+			return 'cache post returned '.$cacheResult.' changed rows';
+		}
+		return 'blog post returned '.$postResult.' changed rows and cache post returned '.postResult.' changed rows';
 	}
 	/**
 	 * Delete a post with the given title
@@ -41,11 +48,7 @@
 	 * @param unknown_type $db
 	 */
 	function getIdByTitle($U_title){
-		$id_blog = mysql_fetch_array(mysql_query('SELECT id FROM blog WHERE title ='.makesafe($U_title)));
-		if($id_blog == 0){
-			return 0 - mysql_fetch_array(mysql_query('SELECT id FROM archive WHERE title ='.makesafe($U_title)));
-		}
-		return $id_blog; 
+		return mysql_fetch_array(mysql_query('SELECT id FROM blog WHERE title ='.makesafe($U_title)));
 	}
 	/**
 	 * Delete a post with a specific id

@@ -2,7 +2,7 @@
 	include('sql.php');
 
 	$res = mysql_fetch_array(mysql_query('SELECT * FROM resources WHERE id=1'));
-	$post_result = mysql_query('SELECT * FROM blog ORDER BY date DESC LIMIT 3');
+	$post_result = mysql_query('SELECT * FROM blogcache ORDER BY date DESC LIMIT 3');
 ?>
 <!DOCTYPE HTML>
 <html>
