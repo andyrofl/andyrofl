@@ -12,6 +12,7 @@
 		include('scripts/blogfunctions.php');
 		echo(postBlog($_POST['description'], $_POST['category'], $_POST['content'], $_POST['title'], $_POST['tags']));
 	}
+	mysql_close($con);
 ?>
 <!DOCTYPE HTML>
 <html>

@@ -1,14 +1,16 @@
 <?php
 	include('../sql.php');
+	include('../scripts/validateinput.php');
 
 	//if($_POST['id'] != null){
 		//TODO don't trust client input, can't even trust my input
-		$res = mysql_fetch_array(mysql_query('SELECT * FROM blog WHERE id='.$_GET['id']));
+		$res = mysql_fetch_array(mysql_query('SELECT * FROM blog WHERE id='.makesafe($_GET['id'])));
 	//}
+	mysql_close($con);
 ?>
 <html>
 	<head>
-		<title><?php echo($res['title']);?></title>
+		<title>andyrofl.com | <?php echo($res['title']);?></title>
 		<link rel=StyleSheet href='../styles/main.css' type='text/css'>
 		<link rel=StyleSheet href='blog.css' type='text/css'>
 		<meta charset='utf-8'>
@@ -23,7 +25,7 @@
 					<div id='timestamp'><?php echo($res['date'])?></div>
 				</div>
 				<div id='right'>
-					<?php include('sidebar.php'); mysql_close($con);?>
+					<?php include('sidebar.php');?>
 				</div>
 			</div>
 			<?php include('../template/footer.php');?>

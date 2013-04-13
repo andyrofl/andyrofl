@@ -20,6 +20,11 @@
 	text-align:right;
 	height:12px;
 }
+#postcontainer{
+	width:60%;
+	width-min:200px;
+	width-max:900px;
+}
 div.recentposts{
 	width:200px;
 }
