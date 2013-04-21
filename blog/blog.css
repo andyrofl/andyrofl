@@ -14,6 +14,7 @@
 }
 #postcontent{
 	font-size:18px;
+	text-align:left;
 }
 #timestamp{
 	font-size:12px;
@@ -23,7 +24,7 @@
 #postcontainer{
 	width:60%;
 	width-min:200px;
-	width-max:900px;
+	margin-left:15px;
 }
 div.recentposts{
 	width:200px;

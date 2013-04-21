@@ -1,0 +1,52 @@
+With the use of various services from this site, information may be collected from you for various purposes. With or without a registered account this information is stored and will be used to make services better. This information will never be used or sold for spam, marketing, or other malicious purposes. This document details instances where information is collected and used, and all users of this site should read this. A simplified [INSERT SIMPLIFIED PRIVACY POLICY] is available to "get the jist of it" but bears no legal status and it is encouraged to read the entire privacy policy before reading the simplified version.
+
+Our Privacy Policy explains:
+
+    What information is collected and why it is collected.
+    How that information is used.
+    Steps taken to protect that information from falling into the wrong hands or being used maliciously.
+
+If you are not familiar with terms used in this document such as cookies, IP addresses, pixel tags and browsers, please read about these terms first. A simplified document in "laymans terms" is available but bears no legal status and is intended to be a companion to this document.
+
+Declarations
+
+	andy, andyrofl, andy rofl -> this site and the proprietor
+	
+	user, "you" -> the user of this site
+	
+Information collected
+	During the use of this site, some personally identifiable information may be collected. This information may include but is not limited to IP Address, name, email address, and payment information during checkout at the digital store.
+	
+How we use information we collect
+	All collected information is used to provide functionality to you (the user) or to prevent, stop, or follow up on attacks on the site such as post spam, Denial of Service, Database breaches, or any other attacks.
+
+Transparency and choice
+	A large portion of this information is provided by the user during the use of a service or feature on the site. Users may opt out of this voluntary information at any time for any reason that is not required to be disclosed by the user. Upon close of an account, all database entries containing personal information will be archived in an offline storage device and held for a minimum time period of [HOLDING PERIOD] and then may be deleted at will by the site administration. Non-sensitive information such as comments and information that must be kept such as sales records will not be removed in this process but can be removed by a site administrator for any reason within legal limits. Information such as IP logs are kept for a period of time and will not be deleted during account closing.
+
+Information you share
+	Users of the site may share personal information with the site and other users. Users are expected to be responsible for their own information safety when communicating with other users.
+
+Accessing and updating your personal information
+
+
+Information we share
+	The site uses Google services such as Analytics, AdSense, and Custom Search. Information gathered by these services is subject to Google's Privacy Policy. andyrofl.com will not sell or share your information with any other third parties.
+
+Information security
+	Information collected by andyrofl.com is stored in a database with strict limits on who can access that information. Sensitive information is stored with higher security detailed below.
+		-Passwords are 'salted' and then encrypted using [ENCRYPTION FUNCTION] before being stored in the database. Using 'salt hashes' with this encryption function makes breaking stolen passwords harder by requiring a new set of "rainbow tables" to be generated for each salt string. More information on how this helps security is available in the simplified Privacy Policy.
+		-A valid email address is required to create an account, this is stored in a database with very strict access restrictions.
+
+Application
+
+
+Enforcement
+
+
+Changes
+	This agreement may be modified at any time for any reason without notification to users.
+
+Ending service
+
+Cookies, pixels and other similar technologies
+Some other things you need to know
