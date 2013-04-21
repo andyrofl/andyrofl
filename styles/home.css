@@ -8,14 +8,16 @@
 	
 }
 #recentposts{
+	text-align:center;
 	min-height:500px;
 }
 div.post{
+	width:90%;
 	-moz-border-radius: 20px;
 	-webkit-border-radius: 20px;
 	-khtml-border-radius: 20px;
 	border-radius: 20px;
-	background-color:00FFAB;
+	background-color:#E5E5E5;
 }
 p.postcontent{
 	font-size:16px;

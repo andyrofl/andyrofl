@@ -3,23 +3,25 @@ BODY{
 }
 #main{
 	width:100%;
+	height:100%;
 }
 #header{
 	height:150px;
-	width:100%;
 	border-radius:15px;
 	background-color:#B3002D;
+	float:top;
 }
 #content{
-	min-height:800px;
-	width:100%;
 	border-radius:15px;
+	float:left;
 }
 #footer{
 	height:100px;
 	width:100%;
 	border-radius:15px;
 	background-color:#B3002D;
+	display:inline-block;
+	text-align:center;
 }
 #largelinks{
 	float:left;
@@ -30,19 +32,19 @@ div.largelink{
 	margin-right:10px;
 }
 #search{
-	width:440px;
+	width:210px;
 	height:100px;
 }
 #smalllinks{
 	height:10px;
-	width:435px;
+	width:205px;
 }
 div.smalllink{
 	float:left;
 	height:10px;
 }
 #searchlinkbox{
-	width:450px;
+	width:220px;
 	height:130px;
 	float:right;
 }
@@ -58,7 +60,7 @@ span.smallText{
 #left{
 	float:left;
 	text-align:center;
-	max-width:60%;
+	max-width:70%;
 	background-color:#FFFFFF;
 	border-radius:15px;
 }
@@ -67,4 +69,9 @@ span.smallText{
 	width:200px;
 	background-color:FFFFFF;
 	border-radius:15px;
+}
+#footercontainer{
+	height:100px;
+	width:200px;
+	text-align:left;
 }

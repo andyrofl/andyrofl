@@ -1,7 +1,7 @@
 <?php
-	$res = mysql_fetch_array(mysql_query('SELECT * FROM resources WHERE id=3'));
-	$streams;
-	$date = date('Y-m-d H:i:s', time() - 3600);
+	$header_res = mysql_fetch_array(mysql_query('SELECT * FROM resources WHERE id=3'));
+	$header_streams;
+	$header_date = date('Y-m-d H:i:s', time() - 3600);
 	if($res['lastupdate'] > $date){
 		function get_url_contents($url){
 			$crl = curl_init();
@@ -13,14 +13,12 @@
 			curl_close($crl);
 			return $ret;
 		}
-		$streams = json_decode(get_url_contents("https://api.twitch.tv/kraken/streams/andyrofl/"));
-		mysql_query("UPDATE resources SET text='$streams->game' lastupdate='$date' WHERE id=3");
-		echo('not cached');
+		$header_streams = json_decode(get_url_contents("https://api.twitch.tv/kraken/streams/andyrofl/"));
+		mysql_query("UPDATE resources SET text='$header_streams->game' lastupdate='$header_date' WHERE id=3");
 	}
 	else{
-		$streams->game = $res['text'];
-		$streams->stream = 'notnull';
-		echo('cached');
+		$header_streams->game = $header_res['text'];
+		$header_streams->stream = 'notnull';
 	}
 ?>
 <div id='header'>
@@ -30,11 +28,11 @@
 		<div class="largelink">
 			<a href="http://www.twitch.tv/andyrofl">
 				<?php
-					if($streams->stream == null){
+					if($header_streams->stream == null){
 						echo("<span class='largeText'>TwitchTV</span> <span class='smallText'>(offline)</span>");
 					}
 					else{
-						echo("<span class='largeText'>TwitchTV</span> <span class='smallText'>(playing $streams->game)</span>");
+						echo("<span class='largeText'>TwitchTV</span> <span class='smallText'>(playing $header_streams->game)</span>");
 					}
 				?>
 			</a>
