@@ -6,7 +6,6 @@
 		//TODO don't trust client input, can't even trust my input
 		$res = mysql_fetch_array(mysql_query('SELECT * FROM blog WHERE id='.makesafe($_GET['id'])));
 	//}
-	mysql_close($con);
 ?>
 <html>
 	<head>
@@ -17,7 +16,7 @@
 	</head>
 	<body>
 		<div id='main'>
-			<?php include('../template/header.php');?>
+			<?php include('../template/header.php');mysql_close($con);?>
 			<div id='content'>
 				<div id='left'>
 					<div id='title'><?php echo($res['title']);?></div>
@@ -25,7 +24,7 @@
 					<div id='timestamp'><?php echo($res['date'])?></div>
 				</div>
 				<div id='right'>
-					<?php include('sidebar.php');?>
+					<!-- ?php include('sidebar.php');?-->
 				</div>
 			</div>
 			<?php include('../template/footer.php');?>

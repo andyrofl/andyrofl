@@ -1,12 +1,4 @@
 @CHARSET "ISO-8859-1";
-#right{
-	float:right;
-	width:200px;
-}
-#left{
-	max-width:65%;
-	float:left;
-}
 #title{
 	font-size:32px;
 	text-align:center;
@@ -22,9 +14,11 @@
 	height:12px;
 }
 #postcontainer{
-	width:60%;
+	width:90%;
 	width-min:200px;
 	margin-left:15px;
+	background-color:#E5E5E5;
+	border-radius:15px;]
 }
 div.recentposts{
 	width:200px;
