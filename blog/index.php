@@ -25,7 +25,7 @@
 				<div id='left'>
 					<?php
 						for($i = 0; $i < 4; $i++){
-							echo('<div id="postcontainer"><div id="title"><a href="post.php?id='.$posts[$i]['id'].'">'.$posts[$i]['title'].'</a></div><div id="postcontent">'.$posts[$i]['content'].'</div><div id="timestamp">'.$posts[$i]['date'].'</div></div>');
+							echo('<div id="postcontainer"><div id="title"><a href="post.php?id='.$posts[$i]['id'].'" id="titlelink">'.$posts[$i]['title'].'</a></div><div id="postcontent">'.$posts[$i]['content'].'</div><div id="timestamp">'.$posts[$i]['date'].'</div></div>');
 						}
 					?>
 					<a href='#'>More posts</a>

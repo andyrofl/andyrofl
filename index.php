@@ -1,7 +1,7 @@
 <?php
 	include('sql.php');
 
-	$reso = mysql_fetch_array(mysql_query('SELECT * FROM resources WHERE id=1'));
+	$res = mysql_fetch_array(mysql_query('SELECT * FROM resources WHERE id=1'));
 	$post_result = mysql_query('SELECT * FROM blogcache ORDER BY date DESC LIMIT 3');
 ?>
 <!DOCTYPE HTML>
@@ -18,7 +18,7 @@
 			<div id='content'>
 				<div id='left'>
 					<div id='shortbio'>
-						<?php echo($reso[1])?>
+						<?php echo($res[1])?>
 					</div>
 					<div id='recentposts'>
 						<?php
@@ -26,7 +26,7 @@
 								echo("<div class='post'>
 										<h1>".$posts['title']."</h1>
 										<p class='postcontent'>".$posts['content']."</p>
-										<span class='dateposted'>".$posts['date']."</span><hr/>
+										<span class='dateposted'>".$posts['date']."</span>
 									</div>");
 							}
 						?>
