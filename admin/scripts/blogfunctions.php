@@ -20,7 +20,7 @@
 		$S_tags = makesafe($U_tags);
 		$S_id = mysql_fetch_assoc(mysql_query('SELECT id from blogcache ORDER BY date ASC LIMIT 1'));
 		
-		$cacheResult = mysql_query("UPDATE blogcache SET description ='$S_description', date='$S_date', category='$S_category', content='$S_content', title='$S_title', tags='$S_tags' WHERE id=$S_id");
+		$cacheResult = mysql_query("UPDATE blogcache SET description ='$S_description', date='$S_date', category='$S_category', content='$S_content', title='<a href='/blog/post.php?id='$S_id'>$S_title'</a>, tags='$S_tags' WHERE id=$S_id");
 		$postResult = mysql_query("INSERT INTO blog (description, date, category, content, title, tags) VALUES ('$S_description', '$S_date', '$S_category', '$S_content', '$S_title', '$S_tags')");
 		
 		if($cacheResult == 1 && $postResult == 1){
@@ -65,7 +65,7 @@
 	 * @return String indicative of success or failure
 	 */
 	function editContent($id, $U_content){
+		$cacheResult = mysql_query('UPDATE blog SET content=`'.$U_content.'` WHERE id=`'.$id.'`');
 		
 	}
-	
 ?>
