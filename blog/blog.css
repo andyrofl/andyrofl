@@ -18,7 +18,7 @@
 	width-min:200px;
 	margin-left:15px;
 	background-color:#E5E5E5;
-	border-radius:15px;]
+	border-radius:15px;
 }
 div.recentposts{
 	width:200px;
@@ -31,4 +31,7 @@ span.rp_title{
 }
 span.rp_blurb{
 	font-size:12px;
+}
+#titlelink{
+	font-color:#000000;
 }
