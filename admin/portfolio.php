@@ -16,13 +16,9 @@
 <html>
 	<head>
 		<title>admin || portfolio</title>
-		<link rel=StyleSheet href='styles/main.css' type='text/css'>
-		<link rel=StyleSheet href='styles/home.css' type='text/css'>
-		<meta charset='utf-8'>
-	</head>
-	<body>
-		<div id='main'>
-			<?php include('../template/header.php');?>
+		<link rel=StyleSheet href='../styles/main.css' type='text/css'>
+		<link rel=StyleSheet href='admin.css' type='text/css'>
+		<?php include('../template/header.php');?>
 			<div id='content'>
 				<div class='module'>
 					<form action='portfolio.php' method='post'>

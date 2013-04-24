@@ -16,11 +16,7 @@
 		<title>andy rofl</title>
 		<link rel=StyleSheet href='../styles/main.css' type='text/css'>
 		<link rel=StyleSheet href='blog.css' type='text/css'>
-		<meta charset='utf-8'>
-	</head>
-	<body>
-		<div id='main'>
-			<?php include('../template/header.php'); mysql_close($con);?>
+		<?php include('../template/header.php'); mysql_close($con);?>
 			<div id='content'>
 				<div id='left'>
 					<?php

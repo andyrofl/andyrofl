@@ -29,11 +29,7 @@ VALUES (
 		<title>andy rofl</title>
 		<link rel=StyleSheet href='../styles/main.css' type='text/css'>
 		<link rel=StyleSheet href='admin.css' type='text/css'>
-		<meta charset='utf-8'>
-	</head>
-	<body>
-		<div id='main'>
-			<?php include('../template/header.php');?>
+		<?php include('../template/header.php');?>
 			<div id='content'>
 				<div class='module'>
 					<div class='head'>blogpost</div>

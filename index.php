@@ -1,6 +1,12 @@
 <?php
 	include('sql.php');
 
+	$con = mysql_connect($mysql_host, $mysql_user, $mysql_password);
+	if (!$con){
+		die('Could not connect: ' . mysql_error());
+	}
+	mysql_select_db($mysql_database_public, $con);
+	
 	$res = mysql_fetch_array(mysql_query('SELECT * FROM resources WHERE id=1'));
 	$post_result = mysql_query('SELECT * FROM blogcache ORDER BY date DESC LIMIT 3');
 ?>
@@ -8,13 +14,9 @@
 <html>
 	<head>
 		<title>andy rofl</title>
-		<link rel=StyleSheet href='styles/main.css' type='text/css'>
 		<link rel=StyleSheet href='styles/home.css' type='text/css'>
-		<meta charset='utf-8'>
-	</head>
-	<body>
-		<div id='main'>
-			<?php include('template/header.php');?>
+		<link rel=StyleSheet href='styles/main.css' type='text/css'>
+		<?php include('template/header.php');?>
 			<div id='content'>
 				<div id='left'>
 					<div id='shortbio'>

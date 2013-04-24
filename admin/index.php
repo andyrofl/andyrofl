@@ -1,17 +1,9 @@
 <?php
+	include('sql.php');
 	include('../sql.php');
-	session_start();
-	if((!isset($_SESSION['login']) || $_SESSION['login']) && $_POST['pass'] == 'Sup3rFuck1ngS3cur3P455W0RD'){
-		$_SESSION['login'] = true;
-	}
 	
-	if($_POST['submittype'] == 'uploadpic'){
-		
-	}
-	else if($_POST['submittype'] = 'blogpost' && $_POST['postcontent'] != null){
-		include('scripts/blogfunctions.php');
-		echo(postBlog($_POST['description'], $_POST['category'], $_POST['content'], $_POST['title'], $_POST['tags']));
-	}
+	
+	
 	mysql_close($con);
 ?>
 <!DOCTYPE HTML>
@@ -20,11 +12,7 @@
 		<title>admin panel</title>
 		<link rel=StyleSheet href='../styles/main.css' type='text/css'>
 		<link rel=StyleSheet href='admin.css' type='text/css'>
-		<meta charset='utf-8'>
-	</head>
-	<body>
-		<div id='main'>
-			<?php include('../template/header.php');?>
+		<?php include('../template/header.php');?>
 			<div id='content'>
 				<?php
 					if($_SESSION['login']){

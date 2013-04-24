@@ -8,11 +8,7 @@
 		<title>andyrofl.com | bio</title>
 		<link rel=StyleSheet href='../styles/main.css' type='text/css'>
 		<link rel=StyleSheet href='about.css' type='text/css'>
-		<meta charset='utf-8'>
-	</head>
-	<body>
-		<div id='main'>
-			<?php include('../template/header.php');mysql_close($con);?>
+		<?php include('../template/header.php');mysql_close($con);?>
 			<div id='content'>
 				<div id='right'>
 					<div id='namepic'>
