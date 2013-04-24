@@ -42,6 +42,7 @@ div.largelink{
 div.smalllink{
 	float:left;
 	height:10px;
+	margin:5px;
 }
 #searchlinkbox{
 	width:220px;
@@ -66,9 +67,10 @@ span.smallText{
 }
 #right{
 	float:right;
-	width:200px;
+	width:256px;
 	background-color:FFFFFF;
 	border-radius:15px;
+	background-color:#FFFFFF;
 }
 #footercontainer{
 	height:100px;
