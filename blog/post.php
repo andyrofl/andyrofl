@@ -2,6 +2,12 @@
 	include('../sql.php');
 	include('../scripts/validateinput.php');
 
+	$con = mysql_connect($mysql_host, $mysql_user_read, $mysql_password_read);
+	if (!$con){
+		die('Could not connect: ' . mysql_error());
+	}
+	mysql_select_db($mysql_database, $con);
+	
 	if(array_key_exists('id', $_GET) && $_GET['id'] != null){
 		//TODO don't trust client input, can't even trust my input
 		$res = mysql_fetch_array(mysql_query('SELECT * FROM blog WHERE id='.makesafe($_GET['id'])));

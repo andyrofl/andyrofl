@@ -1,11 +1,11 @@
 <?php
 	include('sql.php');
 
-	$con = mysql_connect($mysql_host, $mysql_user, $mysql_password);
+	$con = mysql_connect($mysql_host, $mysql_user_read, $mysql_password_read);
 	if (!$con){
 		die('Could not connect: ' . mysql_error());
 	}
-	mysql_select_db($mysql_database_public, $con);
+	mysql_select_db($mysql_database, $con);
 	
 	$res = mysql_fetch_array(mysql_query('SELECT * FROM resources WHERE id=1'));
 	$post_result = mysql_query('SELECT * FROM blogcache ORDER BY date DESC LIMIT 3');
@@ -31,6 +31,7 @@
 										<span class='dateposted'>".$posts['date']."</span>
 									</div>");
 							}
+							mysql_close($con);
 						?>
 					</div>
 				</div>

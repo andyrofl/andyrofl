@@ -1,6 +1,12 @@
 <?php
 	include('../sql.php');
 	
+	$con = mysql_connect($mysql_host, $mysql_user_read, $mysql_password_read);
+	if (!$con){
+		die('Could not connect: ' . mysql_error());
+	}
+	mysql_select_db($mysql_database, $con);
+	
 	$posts[][] = '';
 	$query = mysql_query('SELECT * FROM blog ORDER BY date DESC LIMIT 4');
 	$counter = 0;
