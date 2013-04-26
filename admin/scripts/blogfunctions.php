@@ -1,5 +1,4 @@
 <?php
-	include('../sql.php');
 	include('../scripts/validateinput.php');
 
 	/**
@@ -12,27 +11,25 @@
 	 * @return String representing success or failure
 	 */
 	function postBlog($U_description, $U_category, $U_content, $U_title, $U_tags){
-		$S_date = NOW();
-		$S_description = makesafe($U_description);
-		$S_category = makesafe($U_category);
-		$S_content = makesafe($U_content);
-		$S_title = makesafe($U_title);
-		$S_tags = makesafe($U_tags);
-		$S_id = mysql_fetch_assoc(mysql_query('SELECT id from blogcache ORDER BY date ASC LIMIT 1'));
+		$idarr = mysql_fetch_assoc(mysql_query('SELECT id from blogcache ORDER BY date ASC LIMIT 1'));
+		$S_id = $idarr['id'];
 		
-		$cacheResult = mysql_query("UPDATE blogcache SET description ='$S_description', date='$S_date', category='$S_category', content='$S_content', title='<a href='/blog/post.php?id='$S_id'>$S_title'</a>, tags='$S_tags' WHERE id=$S_id");
-		$postResult = mysql_query("INSERT INTO blog (description, date, category, content, title, tags) VALUES ('$S_description', '$S_date', '$S_category', '$S_content', '$S_title', '$S_tags')");
+		$cacheResult = mysql_query("UPDATE blogcache SET description ='$U_description', date=NOW(), category='$U_category', content='$U_content', title='<a href='/blog/post.php?id='$U_id'>$U_title'</a>, tags='$U_tags' WHERE id=$S_id");
+		echo(mysql_error());
+		$numc = mysql_affected_rows();
+		$postResult = mysql_query("INSERT INTO blog (description, date, category, content, title, tags) VALUES ('$U_description', NOW(), '$U_category', '$U_content', '$U_title', '$U_tags')");
+		$nump = mysql_affected_rows();
 		
-		if($cacheResult == 1 && $postResult == 1){
+		if($cacheResult && $postResult){
 			return 'post success';
 		}
-		else if($cacheResult == 1){
-			return 'blog post returned '.$postResult.' changed rows';
+		else if($cacheResult){
+			return 'blog post returned '.$nump.' changed rows';
 		}
-		else if($postResult == 1){
-			return 'cache post returned '.$cacheResult.' changed rows';
+		else if($postResult){
+			return 'cache post returned '.$munc.' changed rows';
 		}
-		return 'blog post returned '.$postResult.' changed rows and cache post returned '.postResult.' changed rows';
+		return 'blog post returned '.$nump.' changed rows and cache post returned '.$numc.' changed rows';
 	}
 	/**
 	 * Delete a post with the given title

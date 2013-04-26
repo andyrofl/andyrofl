@@ -4,12 +4,11 @@
 	if (!$con){
 		die('Could not connect: ' . mysql_error());
 	}
-	if($_post[item] != null){
-		mysql_select_db($mysql_database, $con);
+	mysql_select_db($mysql_database, $con);
+	
+	if(array_key_exists('item', $_POST)){
 		//mysql_query("INSERT INTO portfolio (item, category, description, status) VALUES (\$_post['item'], \$_post['category'], \$_post['description'], $_POST['status'])");
 		//upload and transcode image
-
-		mysql_close($con);
 	}
 ?>
 <!DOCTYPE HTML>
@@ -18,7 +17,7 @@
 		<title>admin || portfolio</title>
 		<link rel=StyleSheet href='../styles/main.css' type='text/css'>
 		<link rel=StyleSheet href='admin.css' type='text/css'>
-		<?php include('../template/header.php');?>
+		<?php include('../template/header.php');mysql_close($con);?>
 			<div id='content'>
 				<div class='module'>
 					<form action='portfolio.php' method='post'>
@@ -31,7 +30,5 @@
 					</form>
 				</div>
 			</div>
-			<?php include('../template/footer.php');?>
-		</div>
-	</body>
+		<?php include('../template/footer.php');?>
 </html>

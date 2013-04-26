@@ -1,15 +1,15 @@
 ﻿<?php
-	include('../template/header.php');
+	session_start();
+	include('../sql.php');
 	include('sql.php');
-	$con = mysql_connect($mysql_host_pri, $mysql_user_pri, $mysql_password_pri);
+	
+	$con = mysql_connect($mysql_host, $mysql_user_write, $mysql_password_write);
 	if (!$con){
 		die('Could not connect: ' . mysql_error());
 	}
+	mysql_select_db($mysql_database, $con);
 	if($_post[item] != null){
-		mysql_select_db($mysql_database, $con);
 		//mysql_query('INSERT INTO private_inv');
-
-		mysql_close($con);
 	}
 ?>
 <!DOCTYPE HTML>
@@ -18,9 +18,9 @@
 		<title>admin || inventory</title>
 		<link rel=StyleSheet href='../styles/main.css' type='text/css'>
 		<link rel=StyleSheet href='admin.css' type='text/css'>
-		<?php 	include('../template/header.php');?>
+		<?php 	include('../template/header.php');mysql_close($con);?>
 			<div id='content'>
-				<div class='module'>
+				<div id='left'>
 					<form action='inventory.php' method='post'>
 						<input type='text' name='item' value='item'/>
 						<input type='text' name='location' value='location'/>
@@ -32,7 +32,5 @@
 					</form>
 				</div>
 			</div>
-			<?php include('../template/footer.php');?>
-		</div>
-	</body>
+		<?php include('../template/footer.php');?>
 </html>

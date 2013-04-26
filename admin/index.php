@@ -1,10 +1,31 @@
 <?php
+	session_start();
+
 	include('sql.php');
 	include('../sql.php');
+
+	$con = mysql_connect($mysql_host, $mysql_user_write, $mysql_password_write);
+	if (!$con){
+		die('Could not connect: ' . mysql_error());
+	}
+	mysql_select_db($mysql_database_private, $con);
 	
+	if(!$_SESSION['login']){ //not in a session
+		if(array_key_exists('user', $_POST) && array_key_exists('pass', $_POST)){
+			$userinfo = mysql_fetch_array(mysql_query('SELECT * FROM users WHERE id=1'));
+			if($userinfo['username'] === $_POST['user']){
+				if($userinfo['password'] === $_POST['pass']){
+					$_SESSION['login'] = true;
+				}
+			}
+		}
+	}
+	mysql_select_db($mysql_database, $con);
 	
-	
-	mysql_close($con);
+	if(array_key_exists('postcontent', $_POST)){
+		include('scripts/blogfunctions.php');
+		echo(postBlog($_POST['description'], $_POST['category'], $_POST['postcontent'], $_POST['title'], $_POST['tags']));
+	}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -12,18 +33,18 @@
 		<title>admin panel</title>
 		<link rel=StyleSheet href='../styles/main.css' type='text/css'>
 		<link rel=StyleSheet href='admin.css' type='text/css'>
-		<?php include('../template/header.php');?>
+		<?php include('../template/header.php');mysql_close($con);?>
 			<div id='content'>
 				<?php
 					if($_SESSION['login']){
-						echo("
+						echo("<div id='left'>
 <div class='module'>
 	<table id='urlchanging'>
 		<tr><td><a href='blog.php'>blog</a></td><td><a href='portfolio.php'>portfolio</a></td><td><a href='inventory.php'>inventory</a></td></tr>
 	</table>
 </div>
 <div class='module'>
-	<div class='head'>upload picture</div>
+	<div class='head'>upload</div>
 		<form>
 			<input type='file' value='upload'>
 			<select value='type'>
@@ -40,24 +61,23 @@
 		</form>
 	</div>
 <div class='module'>
-<div class='head'>blogpost</div>
+<div class='head'>blog</div>
 	<form method='post'>
-		<textarea rows='4' cols='50' name='postcontent'>Post content (html supported)</textarea>
-		<textarea rows='2' cols='50' name='description'>Description</textarea>
+		<textarea rows='8' cols='100' name='postcontent'>Post content (html supported)</textarea>
+		<textarea rows='3' cols='100' name='description'>Description</textarea><br/>
 		<input type='text' name='category' value='category'/>
 		<input type='text' name='title' value='title'/>
 		<input type='text' name='tags' value='tags'/>
 		<input type='hidden' name='submittype' value='blogpost'/>
 		<input type='submit' value='Post'/>
 	</form>
+</div>
 </div>");
 					}
 					else{
-						echo("enter password to continue: <form method='post'><input type='password' name='pass'/><input type='submit' value='Login'/></form>");
+						echo("enter password to continue: <form method='post'><input type='text' name='user'/><input type='password' name='pass'/><input type='submit' value='Login'/></form>");
 					}
 				?>
 			</div>
-			<?php include('../template/footer.php');?>
-		</div>
-	</body>
+		<?php include('../template/footer.php');?>
 </html>
