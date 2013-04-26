@@ -6,7 +6,5 @@
 		<?php include('../template/header.php');?>
 			<div id='content'>
 			</div>
-			<?php include('../template/footer.php');?>
-		</div>
-	</body>
+		<?php include('../template/footer.php');?>
 </html>

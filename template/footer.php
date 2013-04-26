@@ -8,3 +8,5 @@
 		<a href='http://internetdefenseleague.org'><img src='http://internetdefenseleague.org/images/badges/final/footer_badge.png' alt='Member of The Internet Defense League'/></a>
 	</div-->
 </div>
+</div>
+</body>
