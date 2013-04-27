@@ -5,10 +5,12 @@
 	include('../sql.php');
 
 	$db = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database_private.';charset=utf8', $mysql_user_write, $mysql_password_write);
+	$dbpub = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_write, $mysql_password_write);
 		
 	if(!$_SESSION['login']){ //not in a session
 		if(array_key_exists('user', $_POST) && array_key_exists('pass', $_POST)){
-			$userinfo = $db->query('SELECT * FROM users WHERE id=1');
+			$userStmt = $db->query('SELECT * FROM users WHERE id=1');
+			$userinfo = $userStmt->fetch(PDO::FETCH_ASSOC);
 			if($userinfo['username'] === $_POST['user']){
 				if($userinfo['password'] === $_POST['pass']){
 					$_SESSION['login'] = true;
@@ -16,11 +18,10 @@
 			}
 		}
 	}
-	mysql_select_db($mysql_database, $con);
-	
+	//TODO add archive id to cache db. change date on test post. make new blog post updating only cache. link to archive post done in phpmyadmin
 	if(array_key_exists('postcontent', $_POST)){
 		include('scripts/blogfunctions.php');
-		echo(postBlog($_POST['description'], $_POST['category'], $_POST['postcontent'], $_POST['title'], $_POST['tags']));
+		echo(postBlog($_POST['description'], $_POST['category'], $_POST['postcontent'], $_POST['title'], $_POST['tags'], $dbpub));
 	}
 ?>
 <!DOCTYPE HTML>

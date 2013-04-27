@@ -1,4 +1,5 @@
 <?php
+	error_reporting(E_ALL); ini_set('display_errors',1);
 	include('../scripts/validateinput.php');
 
 	/**
@@ -10,28 +11,31 @@
 	 * @param String_type $U_tags
 	 * @return String representing success or failure
 	 */
-	function postBlog($U_description, $U_category, $U_content, $U_title, $U_tags){
-		$idarr = mysql_fetch_assoc(mysql_query('SELECT id from blogcache ORDER BY date ASC LIMIT 1'));
-		$S_id = $idarr['id'];
+	function postBlog($U_description, $U_category, $U_content, $U_title, $U_tags, $db){
+		$idStmt = $db->query('SELECT id from blogcache ORDER BY date ASC LIMIT 1');
+		$idStmt->execute();
+		$S_id = $idStmt->fetchColumn();
+		echo($S_id);
+
+		$postStmt = $db->prepare('INSERT INTO blog (description, date, category, content, title, tags) VALUES (:desc, NOW(), :cat, :cont, :title, :tags)');
+		$postStmt->execute(array(':desc' => $U_description, ':cat' =>$U_category, ':cont' => $U_content, ':title' => $U_title, ':tags' => $U_tags));
+		$postResult = $postStmt->rowCount();
+		$archiveid = $db->lastInsertId('id');
 		
-		$cacheStmt = $db->prepare('UPDATE blogcache SET description=`:desc`, date=NOW(), category=`:cat`, content=`:cont`, title=`<a href=\'/blog/post.php?id=:id\'>:title</a>`, tags=`:tags` WHERE id=`:id`');
-		$cacheStmt->execute(array(':id' => $S_id, ':desc' => $U_description, ':cat' => $U_category, ':cont' => $U_content, ':title' => $U_title, ':tags' => $U_tags));
-		$cacheResult = $cacheStmt->fetchAll(PDO::FETCH_ASSOC);
-		//TODO replicate below
-		$postStmt = $db->prepare('INSERT INTO blog (description, date, category, content, title, tags) VALUES (`:desc`, NOW(), `:cat`, `:cont`, `:title`, `:tags`)');
-		$postStmt->execute(array(':desc' => $U_description, 'cat' =>$U_category, ':title' => $U_title, ':tags' => $U_tags));
-		$postResult = $postStmt->fetchAll(PDO::FETCH_ASSOC);
+		$cacheStmt = $db->prepare('UPDATE blogcache SET description=:desc, date=NOW(), category=:cat, content=:cont, title=:title, tags=:tags, archiveid=:archiveid WHERE id=:id');
+		$cacheStmt->execute(array(':desc' => $U_description, ':cat' => $U_category, ':cont' => $U_content, ':title' => $U_title, ':tags' => $U_tags, ':archiveid' => $archiveid, ':id' => $S_id));
+		$cacheResult = $cacheStmt->rowCount();
 		
-		if($cacheResult && $postResult){
+		if($cacheResult == 1 && $postResult == 1){
 			return 'post success';
 		}
 		else if($cacheResult){
-			return 'blog post returned '.$postResult->rowCount().' changed rows';
+			return 'blog post returned '.$postResult.' changed rows';
 		}
 		else if($postResult){
-			return 'cache post returned '.$cacheResult->rowCount().' changed rows';
+			return 'cache post returned '.$cacheResult.' changed rows';
 		}
-		return 'blog post returned '.$nump.' changed rows and cache post returned '.$numc.' changed rows';
+		return 'blog post returned '.$postResult.' changed rows and cache post returned '.$cacheResult.' changed rows';
 	}
 	/**
 	 * Delete a post with the given title
