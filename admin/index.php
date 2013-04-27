@@ -4,15 +4,11 @@
 	include('sql.php');
 	include('../sql.php');
 
-	$con = mysql_connect($mysql_host, $mysql_user_write, $mysql_password_write);
-	if (!$con){
-		die('Could not connect: ' . mysql_error());
-	}
-	mysql_select_db($mysql_database_private, $con);
-	
+	$db = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database_private.';charset=utf8', $mysql_user_write, $mysql_password_write);
+		
 	if(!$_SESSION['login']){ //not in a session
 		if(array_key_exists('user', $_POST) && array_key_exists('pass', $_POST)){
-			$userinfo = mysql_fetch_array(mysql_query('SELECT * FROM users WHERE id=1'));
+			$userinfo = $db->query('SELECT * FROM users WHERE id=1');
 			if($userinfo['username'] === $_POST['user']){
 				if($userinfo['password'] === $_POST['pass']){
 					$_SESSION['login'] = true;

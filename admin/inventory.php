@@ -15,7 +15,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>admin || inventory</title>
+		<title>admin | inventory</title>
 		<link rel=StyleSheet href='../styles/main.css' type='text/css'>
 		<link rel=StyleSheet href='admin.css' type='text/css'>
 		<?php 	include('../template/header.php');mysql_close($con);?>
