@@ -1,0 +1,5 @@
+ignore
+/template/*
+/admin/*
+
+Sitemap: http://www.andyrofl.com/sitemap.xml
