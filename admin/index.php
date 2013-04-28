@@ -19,7 +19,7 @@
 		}
 	}
 	//TODO add archive id to cache db. change date on test post. make new blog post updating only cache. link to archive post done in phpmyadmin
-	if(array_key_exists('postcontent', $_POST)){
+	if(array_key_exists('postcontent', $_POST) && $_SESSION['login']){
 		include('scripts/blogfunctions.php');
 		echo(postBlog($_POST['description'], $_POST['category'], $_POST['postcontent'], $_POST['title'], $_POST['tags'], $dbpub));
 	}
@@ -30,7 +30,7 @@
 		<title>admin panel</title>
 		<link rel=StyleSheet href='../styles/main.css' type='text/css'>
 		<link rel=StyleSheet href='admin.css' type='text/css'>
-		<?php include('../template/header.php');mysql_close($con);?>
+		<?php include('../template/header.php');?>
 			<div id='content'>
 				<?php
 					if($_SESSION['login']){

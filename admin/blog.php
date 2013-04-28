@@ -15,7 +15,7 @@
 		<title>andy rofl</title>
 		<link rel=StyleSheet href='../styles/main.css' type='text/css'>
 		<link rel=StyleSheet href='admin.css' type='text/css'>
-		<?php include('../template/header.php');mysql_close($con);?>
+		<?php include('../template/header.php');?>
 			<?php
 				if($_SESSION['login']){
 					echo("<div id='content'>
