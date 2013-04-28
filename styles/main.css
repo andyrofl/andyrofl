@@ -37,7 +37,7 @@ div.largelink{
 }
 #smalllinks{
 	height:10px;
-	width:205px;
+	width:280px;
 }
 div.smalllink{
 	float:left;
@@ -45,7 +45,7 @@ div.smalllink{
 	margin:5px;
 }
 #searchlinkbox{
-	width:220px;
+	width:280px;
 	height:130px;
 	float:right;
 }
@@ -76,4 +76,11 @@ span.smallText{
 	height:100px;
 	width:200px;
 	text-align:left;
+}
+#adminbar{
+	position:absolute;
+	left:0px;
+	bottom:0px;
+	height:32px;
+	background-color:#BFBFBF;
 }

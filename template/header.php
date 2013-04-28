@@ -1,5 +1,4 @@
 <?php
-
 	if(!isset($con)){
 		$con = mysql_connect($mysql_host, $mysql_user_read, $mysql_password_read);
 		if (!$con){
@@ -56,6 +55,7 @@
 				<div id='smalllinks'>
 					<div class="smalllink"><h4><a href="/about">about</a></h4></div>
 					<div class="smalllink"><h4><a href="/contact">contact</a></h4></div>
+					<div class="smalllink"><h4><a href="/portfolio">portfolio</a></h4></div>
 				</div>
 			</div>
 		</div>

@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	include('sql.php');
 
 	$con = mysql_connect($mysql_host, $mysql_user_read, $mysql_password_read);
@@ -16,7 +17,7 @@
 		<title>andy rofl</title>
 		<link rel=StyleSheet href='styles/home.css' type='text/css'>
 		<link rel=StyleSheet href='styles/main.css' type='text/css'>
-		<?php include('template/header.php');?>
+		<?php include('template/header.php'); if($_SESSION['account'] === 1 || $_SESSION['account'] === 2){include('template/adminbar.php');}?>
 			<div id='content'>
 				<div id='left'>
 					<div id='shortbio'>
