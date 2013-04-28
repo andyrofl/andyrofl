@@ -1,0 +1,26 @@
+@CHARSET "ISO-8859-1";
+#left{
+	float:left;
+	width:15%;
+	min-width:180px;
+}
+#right{
+	float:right;
+	width:85%;
+	min-width:150px;
+}
+#highlights{
+	height:225px;
+	float:left;
+}
+div.project{
+	margin-right:50px;
+	width:150px;
+	height:225px;
+	float:left;
+	background-color:#B478AC;
+}
+div.filterselect{
+	height:50px;
+	text-align:left;
+}
