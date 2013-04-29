@@ -78,9 +78,10 @@ span.smallText{
 	text-align:left;
 }
 #adminbar{
-	position:absolute;
+	position:fixed;
 	left:0px;
 	bottom:0px;
 	height:32px;
+	width:100%;
 	background-color:#BFBFBF;
 }

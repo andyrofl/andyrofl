@@ -13,9 +13,7 @@
 			if($userinfo['username'] === $_POST['user']){
 				if($userinfo['password'] === $_POST['pass']){
 					$_SESSION['login'] = true;
-					if(array_key_exists('accounttype', $userinfo)){
-						$_SESSION['account'] = $userinfo['accounttype'];
-					}
+					$_SESSION['account'] = $userinfo['accounttype'];
 				}
 			}
 		}

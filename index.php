@@ -17,7 +17,7 @@
 		<title>andy rofl</title>
 		<link rel=StyleSheet href='styles/home.css' type='text/css'>
 		<link rel=StyleSheet href='styles/main.css' type='text/css'>
-		<?php include('template/header.php'); if($_SESSION['account'] === 1 || $_SESSION['account'] === 2){include('template/adminbar.php');}?>
+		<?php include('template/header.php');?>
 			<div id='content'>
 				<div id='left'>
 					<div id='shortbio'>
