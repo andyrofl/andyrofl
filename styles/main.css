@@ -1,5 +1,6 @@
 BODY{
-	background-color:#000000;
+	background-image:url(../cdn/background.png);
+	background-repeat:repeat;
 }
 #main{
 	width:100%;
