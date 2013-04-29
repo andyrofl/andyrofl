@@ -7,7 +7,7 @@
 	}
 	mysql_select_db($mysql_database, $con);
 	
-	$res = mysql_fetch_array(mysql_query('SELECT * FROM resources WHERE id=4'));
+	$res = mysql_fetch_array(mysql_query('SELECT * FROM resources WHERE id=5'));
 ?>
 <!DOCTYPE HTML>
 <html>
