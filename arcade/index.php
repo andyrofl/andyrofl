@@ -9,7 +9,7 @@
 			<div id='arcadehead'>
 				<h1>Arcade</h1>
 				<div id='search'>
-					##take search query, find game. Custom implementation.
+					
 				</div>
 			</div>
 			<div id='featured'>
