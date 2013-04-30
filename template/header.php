@@ -40,27 +40,31 @@
 	?>
 	<div id='main'>
 		<div id='header'>
-			<div id='largelinks'>
-				<div class="largelink"><a href="/"><span class='largerText'>andy rofl</span></a></div>
-				<div class="largelink"><a href="/blog"><span class='largeText'>blog</span></a></div>
-				<div class="largelink">
-					<a href="http://www.twitch.tv/andyrofl">
-						<?php
-							if($header_streams->stream == null){
-								echo("<span class='largeText'>TwitchTV</span> <span class='smallText'>(offline)</span>");
-							}
-							else{
-								echo("<span class='largeText'>TwitchTV</span> <span class='smallText'>(playing $header_streams->game)</span>");
-							}
-						?>
-					</a>
+			<div id='hfrep' class='piece'>
+				<div id='largelinks'>
+					<div class="largelink"><a href="/"><span class='largerText'>andy rofl</span></a></div>
+					<div class="largelink"><a href="/blog"><span class='largeText'>blog</span></a></div>
+					<div class="largelink">
+						<a href="http://www.twitch.tv/andyrofl">
+							<?php
+								if($header_streams->stream == null){
+									echo("<span class='largeText'>TwitchTV</span> <span class='smallText'>(offline)</span>");
+								}
+								else{
+									echo("<span class='largeText'>TwitchTV</span> <span class='smallText'>(playing $header_streams->game)</span>");
+								}
+							?>
+						</a>
+					</div>
+				</div>
+				<div id='searchlinkbox'>
+					<div id='smalllinks'>
+						<div class="smalllink"><h4><a href="/about">about</a></h4></div>
+						<div class="smalllink"><h4><a href="/contact">contact</a></h4></div>
+						<div class="smalllink"><h4><a href="/portfolio">portfolio</a></h4></div>
+					</div>
 				</div>
 			</div>
-			<div id='searchlinkbox'>
-				<div id='smalllinks'>
-					<div class="smalllink"><h4><a href="/about">about</a></h4></div>
-					<div class="smalllink"><h4><a href="/contact">contact</a></h4></div>
-					<div class="smalllink"><h4><a href="/portfolio">portfolio</a></h4></div>
-				</div>
-			</div>
+			<div id='hfl' class='piece'></div>
+			<div id='hfr' class='piece'></div>
 		</div>

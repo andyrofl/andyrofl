@@ -54,3 +54,11 @@ span.dateposted{
 p{
 	text-align:left;
 }
+#header a{
+	color:#FFFFFF;
+	text-decoration:none;
+}
+#content a{
+	color:#000000;
+	text-decoration:none;
+}

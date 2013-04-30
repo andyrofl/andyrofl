@@ -6,6 +6,6 @@ sql.php
 andyrofl.zip
 PrivacyPolicy.txt
 notes.txt
-cdn/headshot.jpg
-cdn/headshot_full.jpg
+cdn/content/*
+cdn/games/*
 admin/sql.php

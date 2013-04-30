@@ -20,7 +20,7 @@
 				<div id='right'>
 					<div id='namepic'>
 						<div id='name'>andy rofl</div>
-						<a href='../cdn/headshot_full.jpg'><img id='headshot' src='../cdn/headshot.jpg'/></a>
+						<a href='/cdn/content/headshot_full.jpg'><img id='headshot' src='/cdn/content/headshot.jpg'/></a>
 					</div>
 					<div id='contact'>
 						<span>location: Webster, NY</span><br/><br/>

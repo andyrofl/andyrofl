@@ -1,31 +1,62 @@
 BODY{
-	background-image:url(../cdn/background.png);
+	background-image:url('/cdn/res/background.png');
 	background-repeat:repeat;
+	min-width:600px;
 }
 #main{
 	width:100%;
 	height:100%;
 }
 #header{
-	height:150px;
-	border-radius:15px;
-	background-color:#B3002D;
+	height:138px;
+	padding-left:20px;
+	padding-right:20px;
+	min-width:80px;
+}
+#footer{
+	height:100px;
+	clear:both;
+	padding-left:20px;
+	padding-right:20px;
+	min-width:80px;
+}
+#header .piece{
+	position:relative;
+	float:left;
+}
+#footer .piece{
+	position:relative;
+	float:left;
+}
+#hfrep{
+	background-image:url('/cdn/res/headerrep.png');
+	background-repeat:repeat;
+	height:138px;
+	width:100%;
+}
+#hfl{
+	background-image:url('/cdn/res/header.png');
+	background-position:0px 0px;
+	width:20px;
+	right:20px;
+	margin-left:-100%;
+	height:138px;
+}
+#hfr{
+	background-image:url('/cdn/res/header.png');
+	background-position:-20px 0px;
+	width:20px;
+	margin-right:-20px;
+	height:138px;
 }
 #content{
 	border-radius:15px;
 	float:left;
 }
-#footer{
-	height:100px;
-	width:100%;
-	border-radius:15px;
-	background-color:#B3002D;
-	display:inline-block;
-	text-align:center;
-}
 #largelinks{
 	float:left;
 	height:20px;
+	margin:15px;
 }
 div.largelink{
 	float:left;
@@ -67,10 +98,9 @@ span.smallText{
 }
 #right{
 	float:right;
-	width:256px;
-	background-color:#FFFFFF;
-	border-radius:15px;
-	background-color:#FFFFFF;
+	width:300px;
+	margin:0px 5px;
+	background-color:#BFBFBF;
 }
 #footercontainer{
 	height:100px;
@@ -83,7 +113,7 @@ span.smallText{
 	bottom:0px;
 	height:32px;
 	width:100%;
-	background-image:url(/cdn/bar.png);
+	background-image:url('/cdn/res/bar.png');
 	height:46px;
 	background-repeat:repeat;
 }
