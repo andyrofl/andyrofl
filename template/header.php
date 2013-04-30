@@ -44,6 +44,7 @@
 				<div id='largelinks'>
 					<div class="largelink"><a href="/"><span class='largerText'>andy rofl</span></a></div>
 					<div class="largelink"><a href="/blog"><span class='largeText'>blog</span></a></div>
+					<div class="largelink"><a href="https://github.com/andyrofl"><span class='largeText'>code</span></a></div>
 					<div class="largelink">
 						<a href="http://www.twitch.tv/andyrofl">
 							<?php
