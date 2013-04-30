@@ -38,9 +38,14 @@
 				</div>
 				<div id='right'>
 					<div id='syndicate'>
-						<a class='twitter-timeline' href='https://twitter.com/AndyroflZZ' data-widget-id='322008644944269313'>Tweets by @AndyroflZZ</a>
-						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+						<div class='github icon'></div>
+						<div class='rss icon'><a href='/blog/rss'></a></div>
+						<div class='spotify icon'><a href='spotify'></a></div>
+						<div class='steam icon'><a href='steamcommunity.com/id/andyrofl'></a></div>
+						<div class='twitch icon'><a href='twitch.tv/andyrofl'></a></div>
 					</div>
+					<a class='twitter-timeline' href='https://twitter.com/AndyroflZZ' data-widget-id='322008644944269313'>Tweets by @AndyroflZZ</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 				</div>
 			</div>
 		<?php include('template/footer.php');?>

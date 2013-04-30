@@ -10,7 +10,6 @@ BODY{
 	height:150px;
 	border-radius:15px;
 	background-color:#B3002D;
-	float:top;
 }
 #content{
 	border-radius:15px;
@@ -84,5 +83,7 @@ span.smallText{
 	bottom:0px;
 	height:32px;
 	width:100%;
-	background-color:#BFBFBF;
+	background-image:url(/cdn/bar.png);
+	height:46px;
+	background-repeat:repeat;
 }
