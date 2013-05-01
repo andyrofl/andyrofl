@@ -1,12 +1,3 @@
-#twitterfeed{
-	width:200px;
-	height:450px;
-	float:right;
-	background-color:#AABBA9;
-}
-#shortbio{
-	
-}
 #recentposts{
 	text-align:center;
 	min-height:500px;
@@ -49,16 +40,8 @@ span.dateposted{
 	background-position:-192px -32px;
 }
 #syndicate{
-	height:32px;
+	text-align:center;
 }
 p{
 	text-align:left;
-}
-#header a{
-	color:#FFFFFF;
-	text-decoration:none;
-}
-#content a{
-	color:#000000;
-	text-decoration:none;
 }
