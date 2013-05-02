@@ -24,9 +24,6 @@
 					<div class='filterselect'><a href='index.php?sort=skills'>My skills</a></div>
 				</div>
 				<div id='right'>
-					<div>
-						
-					</div>
 					<div id='highlights'>
 						<?php
 							if($_GET['sort'] !== 'skills'){

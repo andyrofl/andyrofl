@@ -33,7 +33,11 @@
 					<a href='#'>More posts</a>
 				</div>
 				<div id='right'>
-					<!-- ?php include('sidebar.php');?-->
+					<div id='righttop'></div>
+					<div id='rightmid'>
+						<!-- ?php include('sidebar.php');?-->
+					</div>
+					<div id='rightbottom'></div>
 				</div>
 			</div>
 		<?php include('../template/footer.php');?>

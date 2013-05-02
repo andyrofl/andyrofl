@@ -39,7 +39,11 @@
 					<div id='timestamp'><?php echo($res['date'])?></div-->
 				</div>
 				<div id='right'>
-					<!-- ?php include('sidebar.php');?-->
+					<div id='righttop'></div>
+					<div id='rightmid'>
+						<!-- ?php include('sidebar.php');?-->
+					</div>
+					<div id='rightbottom'></div>
 				</div>
 			</div>
 		<?php include('../template/footer.php');?>

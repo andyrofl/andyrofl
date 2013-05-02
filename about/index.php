@@ -18,16 +18,20 @@
 		<?php include('../template/header.php');mysql_close($con);?>
 			<div id='content'>
 				<div id='right'>
-					<div id='namepic'>
-						<div id='name'>andy rofl</div>
-						<a href='/cdn/content/headshot_full.jpg'><img id='headshot' src='/cdn/content/headshot.jpg'/></a>
+					<div id='righttop'></div>
+					<div id='rightmid'>
+						<div id='namepic'>
+							<div id='name'>andy rofl</div>
+							<a href='/cdn/content/headshot_full.jpg'><img id='headshot' src='/cdn/content/headshot.jpg'/></a>
+						</div>
+						<div id='contact'>
+							<span>location: Webster, NY</span><br/><br/>
+							<span>admin@andyrofl.com</span><br/>
+							<a href='https://twitter.com/andyroflZZ'>@andyroflZZ</a><br/>
+							<a href='https://github.com/andyrofl'>andyrofl @ github</a>
+						</div>
 					</div>
-					<div id='contact'>
-						<span>location: Webster, NY</span><br/><br/>
-						<span>admin@andyrofl.com</span><br/>
-						<a href='https://twitter.com/andyroflZZ'>@andyroflZZ</a><br/>
-						<a href='https://github.com/andyrofl'>andyrofl @ github</a>
-					</div>
+					<div id='rightbottom'></div>
 				</div>
 				<div id='left'>
 					<div id='experience'>
