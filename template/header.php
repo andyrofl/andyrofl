@@ -34,7 +34,7 @@
 </head>
 <body>
 	<?php
-		if($_SESSION['account'] == 1 || $_SESSION['account'] == 2){
+		if($_SESSION['account'] > 1){
 			include('adminbar.php');
 		}
 	?>
