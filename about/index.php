@@ -13,11 +13,16 @@
 <html>
 	<head>
 		<title>andyrofl.com | bio</title>
-		<link rel=StyleSheet href='../styles/main.css' type='text/css'>
+		<link rel=StyleSheet href='/styles/main.css' type='text/css'>
 		<link rel=StyleSheet href='about.css' type='text/css'>
 		<?php include('../template/header.php');mysql_close($con);?>
 			<div id='content'>
-				<div id='right'>
+				<div id='left' class='cpiece'>
+					<div id='experience'>
+						<?php echo($res['text']);?>
+					</div>
+				</div>
+				<div id='right' class='cpiece'>
 					<div id='righttop'></div>
 					<div id='rightmid'>
 						<div id='namepic'>
@@ -33,11 +38,5 @@
 					</div>
 					<div id='rightbottom'></div>
 				</div>
-				<div id='left'>
-					<div id='experience'>
-						<?php echo($res['text']);?>
-					</div>
-				</div>
-			</div>
 		<?php include('../template/footer.php');?>
 </html>
