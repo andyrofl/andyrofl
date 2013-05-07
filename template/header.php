@@ -39,6 +39,9 @@
 		if($_SESSION['account'] > 1){
 			include('adminbar.php');
 		}
+		else if($_SESSION['account'] == 1){
+			include('modmenu.php');
+		}
 	?>
 	<div id='main'>
 		<div id='header'>
