@@ -1,13 +1,12 @@
 <?php
-	if(!isset($con)){
-		$con = mysql_connect($mysql_host, $mysql_user_read, $mysql_password_read);
-		if (!$con){
-			die('Could not connect: ' . mysql_error());
-		}
-		mysql_select_db($mysql_database, $con);
+	if(!isset($db)){
+		$db = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_read, $mysql_password_read);
 	}
 	
-	$header_res = mysql_fetch_array(mysql_query('SELECT * FROM resources WHERE id=3'));
+	$headerResStmt = $db->prepare('SELECT * FROM resources WHERE id=3');
+	$headerResStmt->execute();
+	$header_res = $headerResStmt->fetch();
+	
 	$header_streams;
 	$header_date = date('Y-m-d H:i:s', time() - 3600);
 	if($header_res['lastupdate'] > $header_date){
@@ -22,7 +21,10 @@
 			return $ret;
 		}
 		$header_streams = json_decode(get_url_contents("https://api.twitch.tv/kraken/streams/andyrofl/"));
-		mysql_query("UPDATE resources SET text='$header_streams->game' lastupdate='$header_date' WHERE id=3");
+
+		$dbWrite = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_write, $mysql_password_write);
+		$headerResStmt = $dbWrite->prepare('UPDATE resources SET text=:text lastupdate=:update WHERE id=3');
+		$headerResStmt->execute(array(':text' => $header_streams->game, ':update' => $header_date));
 	}
 	else{
 		$header_streams->game = $header_res['text'];

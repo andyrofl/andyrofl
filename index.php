@@ -2,14 +2,13 @@
 	session_start();
 	include('sql.php');
 
-	$con = mysql_connect($mysql_host, $mysql_user_read, $mysql_password_read);
-	if (!$con){
-		die('Could not connect: ' . mysql_error());
-	}
-	mysql_select_db($mysql_database, $con);
+	$db = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_read, $mysql_password_read);
 	
-	$res = mysql_fetch_array(mysql_query('SELECT * FROM resources WHERE id=1'));
-	$post_result = mysql_query('SELECT * FROM blogcache ORDER BY date DESC LIMIT 3');
+	$resStmt = $db->prepare('SELECT * FROM resources WHERE id=1');
+	$blogStmt = $db->prepare('SELECT * FROM blogcache ORDER BY date DESC LIMIT 3');
+	$resStmt->execute();
+	$blogStmt->execute();
+	$res = $resStmt->fetch();
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -25,14 +24,13 @@
 					</div>
 					<div id='recentposts'>
 						<?php
-							while($posts = mysql_fetch_array($post_result)){
+							while($posts = $blogStmt->fetch()){
 								echo("<div class='post'>
 										<h1><a href='/blog/post.php?id=".$posts['archiveid']."'>".$posts['title']."</a></h1>
 										<p class='postcontent'>".$posts['content']."</p>
 										<span class='dateposted'>".$posts['date']."</span>
 									</div>");
 							}
-							mysql_close($con);
 						?>
 					</div>
 				</div>

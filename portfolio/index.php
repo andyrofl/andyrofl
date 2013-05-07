@@ -1,11 +1,10 @@
 <?php
 	include('../sql.php');
+
+	$db = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_read, $mysql_password_read);
 	
-	$con = mysql_connect($mysql_host, $mysql_user_read, $mysql_password_read);
-	if (!$con){
-		die('Could not connect: ' . mysql_error());
-	}
-	mysql_select_db($mysql_database, $con);
+	$projectStmt = $db->prepare('SELECT * FROM portfolio ORDER BY id LIMIT 5');
+	$projectStmt->execute();
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -13,7 +12,7 @@
 		<title>andy rofl's projects</title>
 		<link rel=StyleSheet href='../styles/main.css' type='text/css'>
 		<link rel=StyleSheet href='portfolio.css' type='text/css'>
-		<?php include('../template/header.php'); ?>
+		<?php include('../template/header.php');?>
 			<div id='content'>
 				<div id='left'>
 					<div class='filterselect'><a href='index.php?sort=game'>Games</a></div>
@@ -27,8 +26,7 @@
 					<div id='highlights'>
 						<?php
 							if($_GET['sort'] !== 'skills'){
-								$post_result = mysql_query('SELECT * FROM portfolio ORDER BY id LIMIT 5');
-								while($project = mysql_fetch_array($post_result)){
+								while($project = $projectStmt->fetch()){
 									echo "<div class='project'><img width='60' height='40' src='img/".$project['item'].".png'>".$project['item']."</div>";
 								}
 							}
@@ -58,7 +56,9 @@
 								//hardware
 							}
 							else if($_GET['sort'] === 'skills'){
-								$skills = mysql_fetch_array(mysql_query('SELECT * FROM resources WHERE id=2'));
+								$skillsStmt = $db->prepare('SELECT * FROM resources WHERE id=2');
+								$skillsStmt->execute();
+								$skills = $skillsStmt->fetch();
 								echo($skills[1]);
 							}
 							else{
@@ -68,5 +68,5 @@
 					?>
 				</div>
 			</div>
-		<?php include('../template/footer.php'); mysql_close($con);?>
+		<?php include('../template/footer.php');?>
 </html>

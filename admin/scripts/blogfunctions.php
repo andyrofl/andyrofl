@@ -1,6 +1,4 @@
 <?php
-	include('../scripts/validateinput.php');
-
 	/**
 	 * Create a new blog post
 	 * @param String  $U_description

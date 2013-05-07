@@ -1,33 +1,23 @@
 <?php
 	include('../sql.php');
 	
-	$con = mysql_connect($mysql_host, $mysql_user_read, $mysql_password_read);
-	if (!$con){
-		die('Could not connect: ' . mysql_error());
-	}
-	mysql_select_db($mysql_database, $con);
+	$db = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_read, $mysql_password_read);
 	
-	$posts[][] = '';
-	$query = mysql_query('SELECT * FROM blog ORDER BY date DESC LIMIT 4');
-	$counter = 0;
-	while($post = mysql_fetch_array($query)){
-		$posts[$counter] = $post;
-		$counter++;
-	}
+	$blogStmt = $db->prepare('SELECT * FROM blog ORDER BY date DESC LIMIT 4');
+	$blogStmt->execute();
 ?>
-<!-- title, date/time, content (raw html,) tags (full string, tags separated by commas, split during render[maybe, evaluate performance,]) relevant picture (image id, not db id,)-->
 <!DOCTYPE HTML>
 <html>
 	<head>
 		<title>andy rofl</title>
 		<link rel=StyleSheet href='../styles/main.css' type='text/css'>
 		<link rel=StyleSheet href='blog.css' type='text/css'>
-		<?php include('../template/header.php'); mysql_close($con);?>
+		<?php include('../template/header.php');?>
 			<div id='content'>
 				<div id='left'>
 					<?php
-						for($i = 0; $i < 4; $i++){
-							echo('<div id="postcontainer"><div id="title"><a href="post.php?id='.$posts[$i]['id'].'" id="titlelink">'.$posts[$i]['title'].'</a></div><div id="postcontent">'.$posts[$i]['content'].'</div><div id="timestamp">'.$posts[$i]['date'].'</div></div>');
+						while($posts = $blogStmt->fetch()){
+							echo('<div id="postcontainer"><div id="title"><a href="post.php?id='.$posts['id'].'" id="titlelink">'.$posts['title'].'</a></div><div id="postcontent">'.$posts['content'].'</div><div id="timestamp">'.$posts['date'].'</div></div>');
 						}
 					?>
 					<a href='#'>More posts</a>
