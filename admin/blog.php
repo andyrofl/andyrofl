@@ -2,12 +2,12 @@
 	session_start();
 	include('../sql.php');
 	include('sql.php');
-
-	$con = mysql_connect($mysql_host, $mysql_user_read, $mysql_password_read);
-	if (!$con){
-		die('Could not connect: ' . mysql_error());
+	
+	if(array_key_exists('postcontent', $_POST) && $_SESSION['login']){
+		$dbpub = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_write, $mysql_password_write);
+		include('scripts/blogfunctions.php');
+		echo(postBlog($_POST['description'], $_POST['category'], $_POST['postcontent'], $_POST['title'], $_POST['tags'], $dbpub));
 	}
-	mysql_select_db($mysql_database, $con);
 ?>
 <!DOCTYPE HTML>
 <html>
