@@ -27,7 +27,6 @@
 									<input type='text' name='category' value='category'/>
 									<input type='text' name='title' value='title'/>
 									<input type='text' name='tags' value='tags'/>
-									<input type='hidden' name='submittype' value='blogpost'/>
 									<input type='submit' value='Post'/>
 								</form>
 						</div>
