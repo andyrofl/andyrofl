@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	include('../sql.php');
 	
 	if(array_key_exists('id', $_GET) && $_GET['id'] != null){

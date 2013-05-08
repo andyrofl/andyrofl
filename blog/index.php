@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	include('../sql.php');
 	
 	$db = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_read, $mysql_password_read);
