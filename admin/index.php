@@ -8,8 +8,10 @@
 
 	if(!$_SESSION['login']){ //not in a session
 		if(array_key_exists('user', $_POST) && array_key_exists('pass', $_POST)){
-			$userStmt = $db->query('SELECT * FROM users WHERE id=1');
+			$userStmt = $db->prepare("SELECT * FROM users WHERE username = :user");
+			$userStmt->execute(array(':user' => $_POST['user']));
 			$userinfo = $userStmt->fetch(PDO::FETCH_ASSOC);
+			echo('username: '.$userinfo['username'].' password: '.$userinfo['password']);
 			if($userinfo['username'] === $_POST['user']){
 				if($userinfo['password'] === $_POST['pass']){
 					$_SESSION['login'] = true;

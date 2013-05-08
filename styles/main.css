@@ -109,6 +109,7 @@ span.smallText{
 }
 #adminbar{
 	position:fixed;
+	z-index:50;
 	left:0px;
 	bottom:0px;
 	height:32px;
