@@ -30,11 +30,11 @@
 	<body>
 		<div id='main'>
 			<?php include('../template/header.php');?>
+			<div id='content'>
+				<div id='left' class='piece'>
 				<?php
 					if($_SESSION['login']){
-						echo("<div id='content'>
-							<div id='left'>
-								<form action='inventory.php' method='post'>
+						echo("<form action='inventory.php' method='post'>
 									<input type='text' name='item' value='item'/>
 									<input type='text' name='location' value='location'/>
 									<input type='text' name='serial' value='serial/cd-key'/>
@@ -49,6 +49,8 @@
 						echo("invalid credentials. <a href='/admin/'>return to admin panel.</a>");
 					}
 					?>
+				</div>
+			</div>
 			<?php include('../template/footer.php');?>
 		</div>
 	</body>

@@ -37,19 +37,14 @@
 	<body>
 		<div id='main'>
 			<?php include('../template/header.php');?>
-				<div id='content'>
-					<div id='left' class='piece'>
-						<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
-						<div id='cmid'>
-							<div id='cmidrep'>
-								<?php
-									if($_SESSION['login']){
-										echo("<div class='module'>
-					<table id='urlchanging'>
-						<tr><td><a href='blog.php'>blog</a></td><td><a href='inventory.php'>inventory</a></td><td><a href='portfolio.php'>portfolio</a></td><td><a href='users.php'>manage users</a></td></tr>
-					</table>
-				</div>
-				<div class='module'>
+			<div id='content'>
+				<div id='left' class='piece'>
+					<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
+					<div id='cmid'>
+						<div id='cmidrep'>
+							<?php
+								if($_SESSION['login']){
+									echo("<div class='module'>
 					<div class='head'>upload</div>
 						<form>
 							<input type='file' value='upload'>
@@ -78,15 +73,26 @@
 						<input type='submit' value='Post'/>
 					</form>
 				</div>");
-									}
-									else{
-										echo("enter password to continue: <form method='post'><input type='text' name='user'/><input type='password' name='pass'/><input type='submit' value='Login'/></form>");
-									}
-								?>
-							</div>
-							<div id='cmidl'></div>
+								}
+								else{
+									echo("enter password to continue: <form method='post'><input type='text' name='user'/><input type='password' name='pass'/><input type='submit' value='Login'/></form>");
+								}
+							?>
 						</div>
+						<div id='cmidl'></div>
 					</div>
+				</div>
+				<div id='right' class='piece'>
+					<div id='righttop'></div>
+						<div id='rightmid'>
+							<a href='blog.php'>blog</a><br/>
+							<a href='inventory.php'>inventory</a><br/>
+							<a href='portfolio.php'>portfolio</a><br/>
+							<a href='users.php'>manage users</a>
+						</div>
+					<div id='rightbottom'></div>
+				</div>
+			</div>
 			<?php include('../template/footer.php');?>
 		</div>
 	</body>
