@@ -32,7 +32,7 @@
 				<div id='right' class='piece'>
 					<div id='righttop'></div>
 					<div id='rightmid'>
-						<!-- ?php include('sidebar.php');?-->
+						<?php include('sidebar.php');?>
 					</div>
 					<div id='rightbottom'></div>
 				</div>
