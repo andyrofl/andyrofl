@@ -31,56 +31,63 @@
 		<title>admin panel</title>
 		<link rel=StyleSheet href='../styles/main.css' type='text/css'>
 		<link rel=StyleSheet href='admin.css' type='text/css'>
-		<?php include('../template/header.php');?>
-			<div id='content'>
-				<div id='left' class='piece'>
-					<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
-					<div id='cmid'>
-						<div id='cmidrep'>
-							<?php
-								if($_SESSION['login']){
-									echo("<div class='module'>
-				<table id='urlchanging'>
-					<tr><td><a href='blog.php'>blog</a></td><td><a href='inventory.php'>inventory</a></td><td><a href='portfolio.php'>portfolio</a></td><td><a href='users.php'>manage users</a></td></tr>
-				</table>
-			</div>
-			<div class='module'>
-				<div class='head'>upload</div>
-					<form>
-						<input type='file' value='upload'>
-						<select value='type'>
-							<option>image</option>
-							<option>video</option>
-							<option>file</option>
-						</select>
-						<select value='visibility'>
-							<option>public</option>
-							<option>private</option>
-						</select>
-						<input type='hidden' name='submittype' value='uploadpic'/>
-						<input type='submit' value='Upload'/>
-					</form>
+		<meta charset='utf-8'>
+		<script type="text/javascript"> var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-33659175-1']); _gaq.push(['_trackPageview']); (function(){ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script>
+	</head>
+	<body>
+		<div id='main'>
+			<?php include('../template/header.php');?>
+				<div id='content'>
+					<div id='left' class='piece'>
+						<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
+						<div id='cmid'>
+							<div id='cmidrep'>
+								<?php
+									if($_SESSION['login']){
+										echo("<div class='module'>
+					<table id='urlchanging'>
+						<tr><td><a href='blog.php'>blog</a></td><td><a href='inventory.php'>inventory</a></td><td><a href='portfolio.php'>portfolio</a></td><td><a href='users.php'>manage users</a></td></tr>
+					</table>
 				</div>
-			<div class='module'>
-			<div class='head'>blog</div>
-				<form method='post'>
-					<textarea rows='8' cols='100' name='postcontent'>Post content (html supported)</textarea>
-					<textarea rows='3' cols='100' name='description'>Description</textarea><br/>
-					<input type='text' name='category' value='category'/>
-					<input type='text' name='title' value='title'/>
-					<input type='text' name='tags' value='tags'/>
-					<input type='hidden' name='submittype' value='blogpost'/>
-					<input type='submit' value='Post'/>
-				</form>
-			</div>");
-								}
-								else{
-									echo("enter password to continue: <form method='post'><input type='text' name='user'/><input type='password' name='pass'/><input type='submit' value='Login'/></form>");
-								}
-							?>
-						</div>
-						<div id='cmidl'></div>
+				<div class='module'>
+					<div class='head'>upload</div>
+						<form>
+							<input type='file' value='upload'>
+							<select value='type'>
+								<option>image</option>
+								<option>video</option>
+								<option>file</option>
+							</select>
+							<select value='visibility'>
+								<option>public</option>
+								<option>private</option>
+							</select>
+							<input type='hidden' name='submittype' value='uploadpic'/>
+							<input type='submit' value='Upload'/>
+						</form>
 					</div>
-				</div>
-		<?php include('../template/footer.php');?>
+				<div class='module'>
+				<div class='head'>blog</div>
+					<form method='post'>
+						<textarea rows='8' cols='100' name='postcontent'>Post content (html supported)</textarea>
+						<textarea rows='3' cols='100' name='description'>Description</textarea><br/>
+						<input type='text' name='category' value='category'/>
+						<input type='text' name='title' value='title'/>
+						<input type='text' name='tags' value='tags'/>
+						<input type='hidden' name='submittype' value='blogpost'/>
+						<input type='submit' value='Post'/>
+					</form>
+				</div>");
+									}
+									else{
+										echo("enter password to continue: <form method='post'><input type='text' name='user'/><input type='password' name='pass'/><input type='submit' value='Login'/></form>");
+									}
+								?>
+							</div>
+							<div id='cmidl'></div>
+						</div>
+					</div>
+			<?php include('../template/footer.php');?>
+		</div>
+	</body>
 </html>

@@ -24,25 +24,32 @@
 		<title>admin | inventory</title>
 		<link rel=StyleSheet href='../styles/main.css' type='text/css'>
 		<link rel=StyleSheet href='admin.css' type='text/css'>
-		<?php include('../template/header.php');?>
-			<?php
-				if($_SESSION['login']){
-					echo("<div id='content'>
-						<div id='left'>
-							<form action='inventory.php' method='post'>
-								<input type='text' name='item' value='item'/>
-								<input type='text' name='location' value='location'/>
-								<input type='text' name='serial' value='serial/cd-key'/>
-								<input type='text' name='category' value='category'/>
-								<input type='text' name='value' value='value'></input>
-								<input type='submit' value='submit'/>
-							</form>
-						</div>
-					</div>");
-				}
-				else{
-					echo("invalid credentials. <a href='/admin/'>return to admin panel.</a>");
-				}
-				?>
-		<?php include('../template/footer.php');?>
+		<meta charset='utf-8'>
+		<script type="text/javascript"> var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-33659175-1']); _gaq.push(['_trackPageview']); (function(){ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script>
+	</head>
+	<body>
+		<div id='main'>
+			<?php include('../template/header.php');?>
+				<?php
+					if($_SESSION['login']){
+						echo("<div id='content'>
+							<div id='left'>
+								<form action='inventory.php' method='post'>
+									<input type='text' name='item' value='item'/>
+									<input type='text' name='location' value='location'/>
+									<input type='text' name='serial' value='serial/cd-key'/>
+									<input type='text' name='category' value='category'/>
+									<input type='text' name='value' value='value'></input>
+									<input type='submit' value='submit'/>
+								</form>
+							</div>
+						</div>");
+					}
+					else{
+						echo("invalid credentials. <a href='/admin/'>return to admin panel.</a>");
+					}
+					?>
+			<?php include('../template/footer.php');?>
+		</div>
+	</body>
 </html>
