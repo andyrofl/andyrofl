@@ -1,16 +1,16 @@
 <?php
 	error_reporting(E_ALL);ini_set('display_errors',1);
 	
-	if(array_key_exists('user', $_POST)){
+	if(array_key_exists('promoteduser', $_POST)){
 		echo('promoting'.$_POST['user'].'to admin');
 	}
 	
 	echo('<div id="adminbar"><a href="/admin/">admin panel</a> <a href="/admin/blog.php">blog post</a>');
 	if($_SESSION['account'] == 3){
-		echo('<form method="post">Promote to Admin<input type="textbox" name="user"/><input type="submit" value="submit"/><input type="invisible" name="promote" value="mod"/></form>');
+		echo('<form method="post">Promote to Admin<input type="textbox" name="promoteduser"/><input type="submit" value="submit"/><input type="invisible" name="promote" value="mod"/></form>');
 	}
 	else{
-		echo('<form method="post">Promote to Moderator<input type="textbox" name="user"/><input type="submit" value="submit"/><input type="radio" name="promote" value="admin"/></form>');
+		echo('<form method="post">Promote to Moderator<input type="textbox" name="promoteduser"/><input type="submit" value="submit"/><input type="radio" name="promote" value="admin"/></form>');
 	}
 	echo('</div>');
 	/**
