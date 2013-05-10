@@ -15,9 +15,15 @@
 		<link rel=StyleSheet href='../styles/main.css' type='text/css'>
 		<?php include('../template/header.php');?>
 			<div id='content'>
-				<p>
-					<?php echo($res[1]);?>
-				</p>
+				<div id='left'>
+					<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
+					<div id='cmid'>
+						<div id='cmidrep'>
+							<?php echo($res[1]);?>
+						</div>
+						<div id='cmidl'></div>
+					</div>
+				</div>
 			</div>
 		<?php include('../template/footer.php');?>
 </html>

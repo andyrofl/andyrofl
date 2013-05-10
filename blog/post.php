@@ -21,16 +21,22 @@
 		<?php include('../template/header.php');?>
 			<div id='content'>
 				<div id='left'>
-					<?php
-						if($valid){
-							echo('<div id="title">'.$post['title'].'</div>
-							<div id="postcontent">'.$post['content'].'</div>
-							<div id="timestamp">'.$post['date'].'</div>');
-						}
-						else{
-							echo('Error. No parameter or invalid parameter for post id. <a href="/blog/">Click here</a> to return to blog index');
-						}
-					?>
+					<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
+					<div id='cmid'>
+						<div id='cmidrep'>
+							<?php
+								if($valid){
+									echo('<div id="title">'.$post['title'].'</div>
+									<div id="postcontent">'.$post['content'].'</div>
+									<div id="timestamp">'.$post['date'].'</div>');
+								}
+								else{
+									echo('Error. No parameter or invalid parameter for post id. <a href="/blog/">Click here</a> to return to blog index');
+								}
+							?>
+						</div>
+						<div id='cmidl'></div>
+					</div>
 				</div>
 				<div id='right'>
 					<div id='righttop'></div>

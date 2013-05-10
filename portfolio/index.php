@@ -16,12 +16,18 @@
 		<?php include('../template/header.php');?>
 			<div id='content'>
 				<div id='left'>
-					<div class='filterselect'><a href='index.php?sort=game'>Games</a></div>
-					<div class='filterselect'><a href='index.php?sort=level'>Maps / Level Sets</a></div>
-					<div class='filterselect'><a href='index.php?sort=opensource'>Open Source Contributions</a></div>
-					<div class='filterselect'><a href='index.php?sort=software'>Software</a></div>
-					<div class='filterselect'><a href='index.php?sort=hardware'>Hardware</a></div>
-					<div class='filterselect'><a href='index.php?sort=skills'>My skills</a></div>
+					<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
+					<div id='cmid'>
+						<div id='cmidrep'>
+							<div class='filterselect'><a href='index.php?sort=game'>Games</a></div>
+							<div class='filterselect'><a href='index.php?sort=level'>Maps / Level Sets</a></div>
+							<div class='filterselect'><a href='index.php?sort=opensource'>Open Source Contributions</a></div>
+							<div class='filterselect'><a href='index.php?sort=software'>Software</a></div>
+							<div class='filterselect'><a href='index.php?sort=hardware'>Hardware</a></div>
+							<div class='filterselect'><a href='index.php?sort=skills'>My skills</a></div>
+						</div>
+						<div id='cmidl'></div>
+					</div>
 				</div>
 				<div id='right'>
 					<div id='highlights'>

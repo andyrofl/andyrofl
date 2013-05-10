@@ -33,49 +33,55 @@
 		<link rel=StyleSheet href='admin.css' type='text/css'>
 		<?php include('../template/header.php');?>
 			<div id='content'>
-				<?php
-					if($_SESSION['login']){
-						echo("<div id='left'>
-<div class='module'>
-	<table id='urlchanging'>
-		<tr><td><a href='blog.php'>blog</a></td><td><a href='inventory.php'>inventory</a></td><td><a href='portfolio.php'>portfolio</a></td><td><a href='users.php'>manage users</a></td></tr>
-	</table>
-</div>
-<div class='module'>
-	<div class='head'>upload</div>
-		<form>
-			<input type='file' value='upload'>
-			<select value='type'>
-				<option>image</option>
-				<option>video</option>
-				<option>file</option>
-			</select>
-			<select value='visibility'>
-				<option>public</option>
-				<option>private</option>
-			</select>
-			<input type='hidden' name='submittype' value='uploadpic'/>
-			<input type='submit' value='Upload'/>
-		</form>
-	</div>
-<div class='module'>
-<div class='head'>blog</div>
-	<form method='post'>
-		<textarea rows='8' cols='100' name='postcontent'>Post content (html supported)</textarea>
-		<textarea rows='3' cols='100' name='description'>Description</textarea><br/>
-		<input type='text' name='category' value='category'/>
-		<input type='text' name='title' value='title'/>
-		<input type='text' name='tags' value='tags'/>
-		<input type='hidden' name='submittype' value='blogpost'/>
-		<input type='submit' value='Post'/>
-	</form>
-</div>
-</div>");
-					}
-					else{
-						echo("enter password to continue: <form method='post'><input type='text' name='user'/><input type='password' name='pass'/><input type='submit' value='Login'/></form>");
-					}
-				?>
+				<div id='left'>
+					<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
+					<div id='cmid'>
+						<div id='cmidrep'>
+							<?php
+								if($_SESSION['login']){
+									echo("<div class='module'>
+				<table id='urlchanging'>
+					<tr><td><a href='blog.php'>blog</a></td><td><a href='inventory.php'>inventory</a></td><td><a href='portfolio.php'>portfolio</a></td><td><a href='users.php'>manage users</a></td></tr>
+				</table>
+			</div>
+			<div class='module'>
+				<div class='head'>upload</div>
+					<form>
+						<input type='file' value='upload'>
+						<select value='type'>
+							<option>image</option>
+							<option>video</option>
+							<option>file</option>
+						</select>
+						<select value='visibility'>
+							<option>public</option>
+							<option>private</option>
+						</select>
+						<input type='hidden' name='submittype' value='uploadpic'/>
+						<input type='submit' value='Upload'/>
+					</form>
+				</div>
+			<div class='module'>
+			<div class='head'>blog</div>
+				<form method='post'>
+					<textarea rows='8' cols='100' name='postcontent'>Post content (html supported)</textarea>
+					<textarea rows='3' cols='100' name='description'>Description</textarea><br/>
+					<input type='text' name='category' value='category'/>
+					<input type='text' name='title' value='title'/>
+					<input type='text' name='tags' value='tags'/>
+					<input type='hidden' name='submittype' value='blogpost'/>
+					<input type='submit' value='Post'/>
+				</form>
+			</div>");
+								}
+								else{
+									echo("enter password to continue: <form method='post'><input type='text' name='user'/><input type='password' name='pass'/><input type='submit' value='Login'/></form>");
+								}
+							?>
+						</div>
+						<div id='cmidl'></div>
+					</div>
+				</div>
 			</div>
 		<?php include('../template/footer.php');?>
 </html>
