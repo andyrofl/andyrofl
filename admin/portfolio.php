@@ -32,23 +32,30 @@
 			<?php include('../template/header.php');?>
 			<div id='content'>
 				<div id='left' class='piece'>
-				<?php
-					if($_SESSION['login']){
-						echo("<div class='module'>
-								<form action='portfolio.php' method='post'>
-									<textarea rows='3' cols='100' name='description'>description</textarea><br/>
-									<input type='text' name='item' value='project'/>
-									<input type='text' name='category' value='category'/>
-									<input type='text' name='status' value='development status'/>
-									<input type='file' name='image' value='image'/>
-									<input type='submit' value='submit'/>
-								</form>
-							</div>");
-					}
-					else{
-						echo("invalid credentials. <a href='/admin/'>return to admin panel.</a>");
-					}
-				?>
+					<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
+					<div id='cmid'>
+						<div id='cmidrep'>
+							<?php
+								if($_SESSION['login']){
+									echo("<div class='module'>
+											<form action='portfolio.php' method='post'>
+												<textarea rows='3' cols='100' name='description'>description</textarea><br/>
+												<input type='text' name='item' value='project'/>
+												<input type='text' name='category' value='category'/>
+												<input type='text' name='status' value='development status'/>
+												<input type='file' name='image' value='image'/>
+												<input type='submit' value='submit'/>
+											</form>
+										</div>");
+								}
+								else{
+									echo("invalid credentials. <a href='/admin/'>return to admin panel.</a>");
+								}
+							?>
+						</div>
+					</div>
+					<div id='cmidl'></div>
+					<div id='cbot'><div id='cbotrep'></div><div id='cbotl'></div></div>
 				</div>
 			</div>
 			<?php include('../template/footer.php');?>

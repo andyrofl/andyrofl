@@ -24,22 +24,29 @@
 			<?php include('../template/header.php');?>
 			<div id='content'>
 				<div id='left' class='piece'>
-				<?php
-					if($_SESSION['login']){
-						echo("<div class='head'>manage users</div>
-									<form method='post'>
-										username: <input type='textbox' name='useraccount'/>
-										password: <input type='textbox' name='userpw'/>
-										<input type='hidden' name='submittype' value='create'/>
-										<input type='submit' value='Post'/>
-									</form>
-							</div>
-						</div>");
-					}
-					else{
-						echo("invalid credentials. <a href='/admin/'>return to admin panel.</a>");
-					}
-				?>
+					<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
+					<div id='cmid'>
+						<div id='cmidrep'>
+							<?php
+								if($_SESSION['login']){
+									echo("<div class='head'>manage users</div>
+												<form method='post'>
+													username: <input type='textbox' name='useraccount'/>
+													password: <input type='textbox' name='userpw'/>
+													<input type='hidden' name='submittype' value='create'/>
+													<input type='submit' value='Post'/>
+												</form>
+										</div>
+									</div>");
+								}
+								else{
+									echo("invalid credentials. <a href='/admin/'>return to admin panel.</a>");
+								}
+							?>
+						</div>
+					</div>
+					<div id='cmidl'></div>
+					<div id='cbot'><div id='cbotrep'></div><div id='cbotl'></div></div>
 				</div>
 			</div>
 			<?php include('../template/footer.php');?>
