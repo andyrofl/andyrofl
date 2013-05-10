@@ -9,7 +9,7 @@
 		<link rel=StyleSheet href='arcade.css' type='text/css'>
 		<?php include('../template/footer.php');?>
 		<div id='content'>
-			<div id='left'>
+			<div id='left' class='cpiece'>
 				<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
 				<div id='cmid'>
 					<div id='cmidrep'>
