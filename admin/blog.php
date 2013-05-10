@@ -42,10 +42,20 @@
 									echo("invalid credentials. <a href='/admin/'>return to admin panel.</a>");
 								}
 							?>
-							</div>
+						</div>
 					</div>
 					<div id='cmidl'></div>
 					<div id='cbot'><div id='cbotrep'></div><div id='cbotl'></div></div>
+				</div>
+				<div id='right' class='piece'>
+					<div id='righttop'></div>
+						<div id='rightmid'>
+							<a href='blog.php'>blog</a><br/>
+							<a href='inventory.php'>inventory</a><br/>
+							<a href='portfolio.php'>portfolio</a><br/>
+							<a href='users.php'>manage users</a>
+						</div>
+					<div id='rightbottom'></div>
 				</div>
 			</div>
 			<?php include('../template/footer.php');?>
