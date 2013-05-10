@@ -20,14 +20,6 @@ BODY{
 	padding-right:20px;
 	min-width:80px;
 }
-#header .piece{
-	position:relative;
-	float:left;
-}
-#footer .piece{
-	position:relative;
-	float:left;
-}
 #hfrep{
 	background-image:url('/cdn/res/headerrep.png');
 	background-repeat:repeat;
@@ -38,9 +30,9 @@ BODY{
 	background-image:url('/cdn/res/header.png');
 	background-position:0px 0px;
 	width:20px;
+	height:115px;
 	right:20px;
 	margin-left:-100%;
-	height:115px;
 }
 #hfr{
 	background-image:url('/cdn/res/header.png');
@@ -49,18 +41,63 @@ BODY{
 	margin-right:-20px;
 	height:115px;
 }
+#ctopl{
+	background-image:url('/cdn/res/csprites.png');
+	width:5px;
+	height:28px;
+	right:5px;
+	margin-left:-100%;
+}
+#ctoprep{
+	background-image:url('/cdn/res/ctoprep.png');
+	background-repeat:repeat;
+	height:28px;
+	width:100%;
+}
+#ctop{
+	height:28px;
+	width:100%;
+}
+#cbotl{
+	background-image:url('/cdn/res/csprites.png');
+	width:5px;
+	height:5px;
+	right:5px;
+	margin-left:-100%;
+}
+#cbotrep{
+	background-image:url('/cdn/res/cbotrep.png');
+	background-repeat:repeat;
+	height:5px;
+	width:100%;
+}
+#cbot{
+	height:5px;
+	width:100%;
+}
+#cmidrep{
+	background-image:url('/cdn/res/crep.png');
+	background-repeat:repeat;
+	width:100%;
+}
+#cmidl{
+	background-image:url('/cdn/res/clrep.png');
+	background-repeat:repeat;
+	width:5px;
+	right:5px;
+	margin-left:-100%;
+}
 #content{
 	padding-right:300px;
-	margin-right:15px;
-	margin-left:15px;
+	margin-right:20px;
+	margin-left:20px;
 }
-#content .cpiece{
+.piece{
 	position:relative;
 	float:left;
 }
 #left{
 	width:100%;
-	background-color:#FBFBFB;
 }
 #right{
 	width:300px;
@@ -137,7 +174,7 @@ span.smallText{
 	color:#FFFFFF;
 	text-decoration:none;
 }
-#content a{
+#left a{
 	color:#000000;
 	text-decoration:none;
 }

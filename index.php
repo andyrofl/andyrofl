@@ -18,23 +18,30 @@
 		<link rel=StyleSheet href='styles/main.css' type='text/css'>
 		<?php include('template/header.php');?>
 			<div id='content'>
-				<div id='left' class='cpiece'>
-					<div id='shortbio'>
-						<?php echo($res[1])?>
+				<div id='left' class='piece'>
+					<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
+					<div id='cmid'>
+						<div id='cmidrep'>
+							<div id='shortbio'>
+								<?php echo($res[1])?>
+							</div>
+							<div id='recentposts'>
+								<?php
+									while($posts = $blogStmt->fetch()){
+										echo("<div class='post'>
+												<h1><a href='/blog/post.php?id=".$posts['archiveid']."'>".$posts['title']."</a></h1>
+												<p class='postcontent'>".$posts['content']."</p>
+												<span class='dateposted'>".$posts['date']."</span>
+											</div>");
+									}
+								?>
+							</div>
+						</div>
+						<div id='cmidl'></div>
 					</div>
-					<div id='recentposts'>
-						<?php
-							while($posts = $blogStmt->fetch()){
-								echo("<div class='post'>
-										<h1><a href='/blog/post.php?id=".$posts['archiveid']."'>".$posts['title']."</a></h1>
-										<p class='postcontent'>".$posts['content']."</p>
-										<span class='dateposted'>".$posts['date']."</span>
-									</div>");
-							}
-						?>
-					</div>
+					<div id='cbot'><div id='cbotrep'></div><div id='cbotl'></div></div>
 				</div>
-				<div id='right' class='cpiece'>
+				<div id='right' class='piece'>
 					<div id='righttop'></div>
 					<div id='rightmid'>
 						<div id='syndicate'>
