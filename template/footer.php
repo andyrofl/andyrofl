@@ -12,5 +12,3 @@
 	<div id='hfl' class='piece'></div>
 	<div id='hfr' class='piece'></div>
 </div>
-</div>
-</body>
