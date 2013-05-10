@@ -15,7 +15,7 @@
 		<link rel=StyleSheet href='portfolio.css' type='text/css'>
 		<?php include('../template/header.php');?>
 			<div id='content'>
-				<div id='left' class='cpiece'>
+				<div id='left' class='piece'>
 					<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
 					<div id='cmid'>
 						<div id='cmidrep'>
@@ -66,7 +66,7 @@
 						<div id='cmidl'></div>
 					</div>
 				</div>
-				<div id='right' class='cpiece'>
+				<div id='right' class='piece'>
 					<div class='filterselect'><a href='index.php?sort=game'>Games</a></div>
 					<div class='filterselect'><a href='index.php?sort=level'>Maps / Level Sets</a></div>
 					<div class='filterselect'><a href='index.php?sort=opensource'>Open Source Contributions</a></div>

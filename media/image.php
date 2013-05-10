@@ -8,7 +8,7 @@
 		<link rel=StyleSheet href='media.css' type='text/css'>
 		<?php include('../template/header.php');?>
 			<div id='content'>
-				<div id='left' class='cpiece'>
+				<div id='left' class='piece'>
 					<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
 					<div id='cmid'>
 						<div id='cmidrep'>
