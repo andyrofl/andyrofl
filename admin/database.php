@@ -30,12 +30,9 @@
 									echo("<div class='module'>
 					<div class='head'>edit database</div>
 						<form method='post'>
-							<textarea rows='8' cols='100' name='postcontent'>Post content (html supported)</textarea>
-							<textarea rows='3' cols='100' name='description'>Description</textarea><br/>
-							<input type='text' name='category' value='category'/>
-							<input type='text' name='title' value='title'/>
-							<input type='text' name='tags' value='tags'/>
-							<input type='hidden' name='submittype' value='blogpost'/>
+							<textarea rows='8' cols='100' name='query'>MySQL query</textarea>
+							<input type='radio' name='database' value='pub'> public<br/>
+							<input type='radio' name='database' value='pri'> private<br/>
 							<input type='submit' value='Post'/>
 						</form>
 					</div>");
