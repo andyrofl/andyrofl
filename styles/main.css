@@ -174,7 +174,10 @@ span.smallText{
 	color:#FFFFFF;
 	text-decoration:none;
 }
-#left a{
-	color:#000000;
+#footer a{
+	color:#FFFFFF;
+	text-decoration:none;
+}
+a{
 	text-decoration:none;
 }
