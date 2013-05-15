@@ -3,12 +3,12 @@
 	include('sql.php');
 	include('../sql.php');
 
-	$db = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database_private.';charset=utf8', $mysql_user_write, $mysql_password_write);
+	$dbpri = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database_private.';charset=utf8', $mysql_user_write, $mysql_password_write);
 	$dbpub = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_write, $mysql_password_write);
 
 	if(!$_SESSION['login']){ //not in a session
 		if(array_key_exists('user', $_POST) && array_key_exists('pass', $_POST)){
-			$userStmt = $db->prepare("SELECT * FROM users WHERE username = :user");
+			$userStmt = $dbpri->prepare("SELECT * FROM users WHERE username = :user");
 			$userStmt->execute(array(':user' => $_POST['user']));
 			$userinfo = $userStmt->fetch(PDO::FETCH_ASSOC);
 			echo('username: '.$userinfo['username'].' password: '.$userinfo['password']);
@@ -88,7 +88,8 @@
 							<a href='blog.php'>blog</a><br/>
 							<a href='inventory.php'>inventory</a><br/>
 							<a href='portfolio.php'>portfolio</a><br/>
-							<a href='users.php'>manage users</a>
+							<a href='users.php'>manage users</a><br/>
+							<a href='database.php'>manage database</a>
 						</div>
 					<div id='rightbottom'></div>
 				</div>
