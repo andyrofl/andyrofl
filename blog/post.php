@@ -8,7 +8,11 @@
 		$blogStmt->execute(array(':id' => $_GET['id']));
 		$post = $blogStmt->fetch();
 
-		if($post != null){
+		if($post == null){
+			http_response_code(404);
+			$valid = false;
+		}
+		else{
 			$valid = true;
 		}
 	}
