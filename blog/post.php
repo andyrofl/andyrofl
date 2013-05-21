@@ -9,6 +9,21 @@
 		$post = $blogStmt->fetch();
 
 		if($post == null){
+			/**
+			 * Compatibility for PHP 4.3 - 5.3
+			 */
+			if(!function_exists('http_response_code')){
+				function http_response_code($newcode = NULL){
+					static $code = 200;
+					if($newcode !== NULL){
+						header('X-PHP-Response-Code: '.$newcode, true, $newcode);
+						if(!headers_sent())
+							$code = $newcode;
+					}
+					return $code;
+				}
+			}
+			
 			http_response_code(404);
 			$valid = false;
 		}
