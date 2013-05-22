@@ -1,5 +1,7 @@
 <?php
 	session_start();
+	include('../sql.php');
+	$dbpub = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_write, $mysql_password_write);
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -49,6 +51,13 @@
 						</div>
 						<div id='cmidl'></div>
 					</div>
+				</div>
+				<div id='right' class='piece'>
+					<div id='righttop'></div>
+					<div id='rightmid'>
+						//random games
+					</div>
+					<div id='rightbottom'></div>
 				</div>
 			</div>
 			<?php include('../template/footer.php');?>
