@@ -50,7 +50,7 @@
 		$_SESSION['is_logged']=true;
 		loadcfg();
 	}
-
+	
 	if($_REQUEST['login']){
 		if($_REQUEST['pwd']!=$ACCESS_PWD){
 			$err_msg="Invalid password. Try again";
@@ -458,8 +458,8 @@
 			<input type="hidden" name="refresh" value="">
 			<input type="hidden" name="p" value="">
 			<div class="inv">
-				<a href="http://phpminiadmin.sourceforge.net/" target="_blank"><b>phpMiniAdmin <?php echo $VERSION?></b></a>
-				<?php if ($_SESSION['is_logged'] && $dbh){ ?>
+				<a href="http://phpminiadmin.sourceforge.net/" target="_blank"><b>phpMiniAdmin <?php echo $VERSION;?></b></a>
+				<?php if($_SESSION['login'] && $_SESSION['account'] > 2 && $dbh){ ?>
 				| <a href="?<?php echo $xurl?>&q=show+databases">Databases</a>: <select name="db" onChange="frefresh()"><option value='*'> - select/refresh -</option><option value=''> - show all -</option><?php echo get_db_select($dbn)?></select>
 				<?php if($dbn){ $z=" &#183; <a href='$self?$xurl&db=$dbn"; ?>
 				<?php echo $z.'&q='.urlencode($SHOW_T)?>'>show tables</a>
