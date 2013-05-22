@@ -38,6 +38,18 @@
 		include('modmenu.php');
 	}
 ?>
+<script src='//www.google.com/jsapi' type='text/javascript'></script>
+<script type='text/javascript'>
+	google.load('search', '1', {language: 'en', style: google.loader.themes.MINIMALIST});
+	google.setOnLoadCallback(function(){
+		var customSearchOptions = {};
+		var customSearchControl = new google.search.CustomSearchControl('011954134038849293733:lw4z0ujey7q', customSearchOptions);
+		customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+		var options = new google.search.DrawOptions();
+		options.setSearchFormRoot('cse-search-form');
+		customSearchControl.draw('cse', options);
+	}, true);
+</script>
 <div id='header'>
 	<div id='hfrep' class='piece'>
 		<div id='largelinks'>
@@ -62,6 +74,9 @@
 				<div class="smalllink"><h4><a href="/about">about</a></h4></div>
 				<div class="smalllink"><h4><a href="/contact">contact</a></h4></div>
 				<div class="smalllink"><h4><a href="/portfolio">portfolio</a></h4></div>
+			</div>
+			<div id='search'>
+				<div id='cse-search-form' style='width: 100%;'>Loading</div>
 			</div>
 		</div>
 	</div>
