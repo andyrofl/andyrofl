@@ -1,7 +1,7 @@
 <div id='footer'>
 	<div id='hfrep' class='piece'>
-		<div id='footercontainer'>
-			Scripts used:<br/>
+		<div id='footercontainer'><br/>
+			<a href='/sitemap.php'>sitemap</a><br/>
 			<a href='http://michelf.ca/projects/php-markdown/'>PHP Markdown</a><br/>
 			<a href='http://ryanfait.com/resources/php-image-resize/'>Image resize</a>
 		</div>

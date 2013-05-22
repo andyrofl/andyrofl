@@ -1,5 +1,5 @@
 ignore
-/template/*
 /admin/*
-
-Sitemap: http://www.andyrofl.com/sitemap.xml
+/blog/sidebar.php
+/search/*
+/template/*

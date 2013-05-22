@@ -27,7 +27,7 @@
 							<div id='cmidrep'>
 								<?php
 									while($link = $linkStmt->fetch()){
-										echo('<a href="'.$link.'">'.$link.'</a>');
+										echo('<a href="'.$link['link'].'">andyrofl.com'.$link['link'].'</a><br/>');
 									}
 								?>
 							</div>
