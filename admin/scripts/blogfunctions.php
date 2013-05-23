@@ -23,6 +23,10 @@
 		$cacheStmt->execute(array(':desc' => $U_description, ':cat' => $U_category, ':cont' => $U_content, ':title' => $U_title, ':tags' => $U_tags, ':archiveid' => $archiveid, ':id' => $S_id));
 		$cacheResult = $cacheStmt->rowCount();
 		
+		$linkStmt = $db->prepare('INSERT INTO links (link) VALUES (:link)');
+		$linkStmt->execute(array(':link' => '/blog/post.php?id='.$S_id));
+		$linkResult = $postStmt->rowCount();
+		
 		if($cacheResult == 1 && $postResult == 1){
 			return 'post success';
 		}
