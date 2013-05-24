@@ -1,7 +1,11 @@
 <?php
 	session_start();
 	include('../sql.php');
-	$dbpub = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_write, $mysql_password_write);
+	$dbpub = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_read, $mysql_password_read);
+	
+	$gameStmt = $dbpub->prepare('SELECT * FROM games WHERE id=:id');
+	$gameStmt->execute(array(':id' => $_GET['id']));
+	$game = $gameStmt->fetch();
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -22,20 +26,26 @@
 						<div id='cmidrep'>
 							<div id='gameetc'>
 								<div id='title'>
-									<h2>${title}</h2>
+									<h2><?php echo($game['title']);?></h2>
 								</div>
 								<div id='game'>
-									%if gamelang=java:
-										<object type='applet' src='${dir}'>applet unsupported</object>
-									%else if gamelang=flash
-										##flash
-									%endif
+									<?php
+										if($game['type'] == 1){
+											echo('<object type="application/x-java-applet" height="600" width="800">
+											<param name="code" value="com.andyrofl.LD23.LDApplet" />
+											<param name="archive" value="'.$game['filename'].'" />
+											Applet failed to run.  No Java plug-in was found.
+											</object>');
+										}
+										//TODO flash and unity
+									?>
 								</div>
 								<div id='bottom'>
 									<div id='about'>
-										${title}
-										${controls}
-										${dateposted}
+										<?php
+											echo($game['title'].'<br/>');
+											echo($game['date']);
+										?>
 									</div>
 									<div id='info'>
 										${info}

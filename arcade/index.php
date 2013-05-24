@@ -23,14 +23,15 @@
 							<div id='arcadehead'>
 								<h1>Arcade</h1>
 								<div id='search'>
-									
+									<a href='game.php?id=1'>LD23</a>
 								</div>
 							</div>
 							<div id='featured'>
-								##slideshow here
+								<a href=''></a>
 							</div>
 						</div>
 						<div id='cmidl'></div>
+						<div id='cbot'><div id='cbotrep'></div><div id='cbotl'></div></div>
 					</div>
 				</div>
 				<div id='right' class='piece'>
