@@ -143,8 +143,8 @@ span.smallText{
 }
 #footercontainer{
 	height:100px;
-	width:200px;
 	text-align:left;
+	margin:15px;
 	float:left;
 	position:relative;
 }
