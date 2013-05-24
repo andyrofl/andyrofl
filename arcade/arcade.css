@@ -1,18 +1,8 @@
 #gameetc{
 	text-align:center;
 }
-#game{
-	
-}
-#bottom{
-	
-}
-#about{
-	
-}
-#info{
-	
-}
-#share{
-	
+#title{
+	font-size:32px;
+	text-align:center;
+	height:32px;
 }
