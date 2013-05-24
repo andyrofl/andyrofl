@@ -32,7 +32,7 @@
 									<?php
 										if($game['type'] == 1){
 											echo('<object type="application/x-java-applet" height="600" width="800">
-											<param name="code" value="com.andyrofl.LD23.LDApplet" />
+											<param name="code" value="'.$game['code'].'" />
 											<param name="archive" value="'.$game['filename'].'" />
 											Applet failed to run.  No Java plug-in was found.
 											</object>');
@@ -47,10 +47,10 @@
 											echo($game['date']);
 										?>
 									</div>
-									<!-- div id='info'>
-										${info}
+									<div id='info'>
+										<?PHP echo($game['description']);?>
 									</div>
-									<div id='share'>
+									<!--div id='share'>
 										##share to fb wall
 										##tweet
 										##G+
