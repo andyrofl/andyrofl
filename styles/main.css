@@ -145,6 +145,8 @@ span.smallText{
 	height:100px;
 	width:200px;
 	text-align:left;
+	float:left;
+	position:relative;
 }
 #adminbar{
 	position:fixed;
