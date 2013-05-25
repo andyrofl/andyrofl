@@ -73,7 +73,6 @@
 			<div id='smalllinks'>
 				<div class="smalllink"><h4><a href="/about">about</a></h4></div>
 				<div class="smalllink"><h4><a href="/contact">contact</a></h4></div>
-				<div class="smalllink"><h4><a href="/portfolio">portfolio</a></h4></div>
 			</div>
 			<div id='search'>
 				<div id='cse-search-form' style='width: 100%;'>Loading</div>

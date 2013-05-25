@@ -114,13 +114,14 @@ div.largelink{
 }
 #search{
 	width:210px;
-	height:100px;
 	float:left;
 	position:relative;
 }
 #smalllinks{
-	height:10px;
 	width:280px;
+	height:45px;
+	position:relative;
+	float:left;
 }
 div.smalllink{
 	float:left;
