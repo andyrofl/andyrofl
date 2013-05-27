@@ -38,17 +38,16 @@
 		include('modmenu.php');
 	}
 ?>
-<script src='//www.google.com/jsapi' type='text/javascript'></script>
-<script type='text/javascript'>
-	google.load('search', '1', {language: 'en', style: google.loader.themes.MINIMALIST});
-	google.setOnLoadCallback(function(){
-		var customSearchOptions = {};
-		var customSearchControl = new google.search.CustomSearchControl('011954134038849293733:lw4z0ujey7q', customSearchOptions);
-		customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
-		var options = new google.search.DrawOptions();
-		options.setSearchFormRoot('cse-search-form');
-		customSearchControl.draw('cse', options);
-	}, true);
+<script>
+	(function() {
+		var cx = '011954134038849293733:lw4z0ujey7q';
+		var gcse = document.createElement('script');
+		gcse.type = 'text/javascript';
+		gcse.async = true;
+		gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.google.com/cse/cse.js?cx=' + cx;
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(gcse, s);
+	})();
 </script>
 <div id='header'>
 	<div id='hfrep' class='piece'>
@@ -75,7 +74,7 @@
 				<div class="smalllink"><h4><a href="/contact">contact</a></h4></div>
 			</div>
 			<div id='search'>
-				<div id='cse-search-form' style='width: 100%;'>Loading</div>
+				<gcse:searchbox-only></gcse:searchbox-only>
 			</div>
 		</div>
 	</div>
