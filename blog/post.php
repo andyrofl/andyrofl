@@ -32,6 +32,7 @@
 		}
 	}
 ?>
+<!DOCTYPE HTML>
 <html>
 	<head>
 		<title>andyrofl.com | <?php if($valid){echo($post['title']);}else{echo('post not found');}?></title>
