@@ -30,17 +30,22 @@
 								</div>
 								<div id='game'>
 									<?php
-										if($game['type'] == 0){
-											echo('<p>Coming soon</p>');
+										if($game['access'] > $_SESSION['account']){
+											echo("<p>This game requires a higher access level.</p>");
 										}
-										else if($game['type'] == 1){
-											echo('<object type="application/x-java-applet" height="600" width="800">
-											<param name="code" value="'.$game['code'].'" />
-											<param name="archive" value="'.$game['filename'].'" />
-											Applet failed to run.  No Java plug-in was found.
-											</object>');
+										else{
+											if($game['type'] == 0){
+												echo('<p>Coming soon</p>');
+											}
+											else if($game['type'] == 1){
+												echo('<object type="application/x-java-applet" height="'.$game['height'].'" width="'.$game['width'].'">
+												<param name="code" value="'.$game['code'].'" />
+												<param name="archive" value="'.$game['filename'].'" />
+												Applet failed to run.  No Java plug-in was found.
+												</object>');
+											}
+											//TODO flash and unity
 										}
-										//TODO flash and unity
 									?>
 								</div>
 								<div id='bottom'>

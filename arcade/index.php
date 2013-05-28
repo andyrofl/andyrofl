@@ -22,7 +22,7 @@
 						<div id='cmidrep'>
 							<div id='arcadehead'>
 								<div id='title'>Arcade</div>
-								<a href='game.php?id=1'>LD23</a>
+								<a href='game.php?id=3'>Hack and Defend 2</a>
 							</div>
 							<div id='featured'>
 								<a href=''></a>
