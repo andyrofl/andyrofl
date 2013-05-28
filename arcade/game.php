@@ -30,7 +30,10 @@
 								</div>
 								<div id='game'>
 									<?php
-										if($game['type'] == 1){
+										if($game['type'] == 0){
+											echo('<p>Coming soon</p>');
+										}
+										else if($game['type'] == 1){
 											echo('<object type="application/x-java-applet" height="600" width="800">
 											<param name="code" value="'.$game['code'].'" />
 											<param name="archive" value="'.$game['filename'].'" />
