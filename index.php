@@ -29,7 +29,7 @@
 						<div id='cmid'>
 							<div id='cmidrep'>
 								<div id='shortbio'>
-									<?php echo($res[1])?>
+									<span><?php echo($res[1])?></span>
 								</div>
 								<div id='recentposts'>
 									<?php
