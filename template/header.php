@@ -9,7 +9,7 @@
 	
 	$header_streams;
 	$header_date = date('Y-m-d H:i:s', time() - 3600);
-	if($header_res['lastupdate'] > $header_date){
+	if($header_res['lastupdate'] < $header_date){
 		function get_url_contents($url){
 			$crl = curl_init();
 			$timeout = 5;
@@ -21,14 +21,16 @@
 			return $ret;
 		}
 		$header_streams = json_decode(get_url_contents("https://api.twitch.tv/kraken/streams/andyrofl/"));
-
+		if($header_streams->game == null){
+			$header_streams->game = 'offline';
+		}
+		
 		$dbWrite = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_write, $mysql_password_write);
-		$headerResStmt = $dbWrite->prepare('UPDATE resources SET text=:text lastupdate=:update WHERE id=3');
-		$headerResStmt->execute(array(':text' => $header_streams->game, ':update' => $header_date));
+		$headerResStmt = $dbWrite->prepare('UPDATE resources SET text=:text, lastupdate=:update WHERE id=3');
+		$headerResStmt->execute(array(':text' => $header_streams->game, ':update' => date('Y-m-d H:i:s', time())));
 	}
 	else{
 		$header_streams->game = $header_res['text'];
-		$header_streams->stream = 'notnull';
 	}
 
 	if($_SESSION['account'] > 1){
@@ -58,7 +60,7 @@
 			<div class="largelink">
 				<a href="http://www.twitch.tv/andyrofl">
 					<?php
-						if($header_streams->stream == null){
+						if($header_streams->game == 'offline'){
 							echo("<span class='largeText'>TwitchTV</span> <span class='smallText'>(offline)</span>");
 						}
 						else{
