@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	include('../sql.php');
 ?>
 <!DOCTYPE HTML>
 <html>
