@@ -2,10 +2,12 @@
 	if(!isset($db)){
 		$db = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_read, $mysql_password_read);
 	}
+	if($resStmt == null){
+		$resStmt = $db->prepare('SELECT * FROM resources WHERE id=:id');
+	}
 	
-	$headerResStmt = $db->prepare('SELECT * FROM resources WHERE id=3');
-	$headerResStmt->execute();
-	$header_res = $headerResStmt->fetch();
+	$resStmt->execute(array(':id' => '3'));
+	$header_res = $resStmt->fetch();
 	
 	$header_streams;
 	$header_date = date('Y-m-d H:i:s', time() - 3600);
@@ -26,8 +28,9 @@
 		}
 		
 		$dbWrite = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_write, $mysql_password_write);
-		$headerResStmt = $dbWrite->prepare('UPDATE resources SET text=:text, lastupdate=:update WHERE id=3');
-		$headerResStmt->execute(array(':text' => $header_streams->game, ':update' => date('Y-m-d H:i:s', time())));
+		$twitchStmt = $dbWrite->prepare('UPDATE resources SET text=:text, lastupdate=:update WHERE id=3');
+		$twitchStmt->execute(array(':text' => $header_streams->game, ':update' => date('Y-m-d H:i:s', time())));
+		//TODO destroy dbwrite
 	}
 	else{
 		$header_streams->game = $header_res['text'];

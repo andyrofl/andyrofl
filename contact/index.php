@@ -4,8 +4,8 @@
 	
 	$db = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_read, $mysql_password_read);
 	
-	$resStmt = $db->prepare('SELECT * FROM resources WHERE id=5');
-	$resStmt->execute();
+	$resStmt = $db->prepare('SELECT * FROM resources WHERE id=:id');
+	$resStmt->execute(array(':id' => '5'));
 	$res = $resStmt->fetch();
 ?>
 <!DOCTYPE HTML>

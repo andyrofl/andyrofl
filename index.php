@@ -4,9 +4,9 @@
 
 	$db = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_read, $mysql_password_read);
 	
-	$resStmt = $db->prepare('SELECT * FROM resources WHERE id=1');
+	$resStmt = $db->prepare('SELECT * FROM resources WHERE id=:id');
 	$blogStmt = $db->prepare('SELECT * FROM blogcache ORDER BY date DESC LIMIT 3');
-	$resStmt->execute();
+	$resStmt->execute(array(':id' => '1'));
 	$blogStmt->execute();
 	$res = $resStmt->fetch();
 ?>
