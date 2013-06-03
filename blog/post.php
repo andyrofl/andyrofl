@@ -2,10 +2,11 @@
 	session_start();
 	include('../sql.php');
 	
-	if(array_key_exists('id', $_GET) && $_GET['id'] != null){
+	if(array_key_exists('vanity', $_GET) && $_GET['vanity'] != null){
+		$param = explode("/", $_GET['vanity']);
 		$db = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_read, $mysql_password_read);
-		$blogStmt = $db->prepare('SELECT * FROM blog WHERE id=:id');
-		$blogStmt->execute(array(':id' => $_GET['id']));
+		$blogStmt = $db->prepare('SELECT * FROM blog WHERE vanity=:vanity');
+		$blogStmt->execute(array(':vanity' => $param[1]));
 		$post = $blogStmt->fetch();
 
 		if($post == null){
