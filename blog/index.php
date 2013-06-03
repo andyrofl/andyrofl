@@ -26,7 +26,7 @@
 							<div id='cmidrep'>
 								<?php
 									while($posts = $blogStmt->fetch()){
-										echo('<div id="postcontainer"><div id="title"><a href="post.php?id='.$posts['id'].'" id="titlelink">'.$posts['title'].'</a></div><div id="postcontent">'.$posts['content'].'</div><div id="timestamp">'.$posts['date'].'</div></div>');
+										echo('<div id="postcontainer"><div id="title"><a href="/blog/'.$posts['vanity'].'" id="titlelink">'.$posts['title'].'</a></div><div id="postcontent">'.$posts['content'].'</div><div id="timestamp">'.$posts['date'].'</div></div>');
 									}
 								?>
 								<a href='#'>More posts</a>
