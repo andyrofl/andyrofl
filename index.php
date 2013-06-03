@@ -35,7 +35,7 @@
 									<?php
 										while($posts = $blogStmt->fetch()){
 											echo("<div class='post'>
-													<h1><a href='/blog/post.php?id=".$posts['archiveid']."'>".$posts['title']."</a></h1>
+													<h1><a href='/blog/".$posts['archiveurl']."'>".$posts['title']."</a></h1>
 													<p class='postcontent'>".$posts['content']."</p>
 													<span class='dateposted'>".$posts['date']."</span>
 												</div>");
