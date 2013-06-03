@@ -8,19 +8,19 @@
 	 * @param String_type $U_tags
 	 * @return String representing success or failure
 	 */
-	function postBlog($U_description, $U_category, $U_content, $U_title, $U_tags, $db){
+	function postBlog($U_description, $U_category, $U_content, $U_title, $U_vanity, $U_tags, $db){
 		$idStmt = $db->query('SELECT id from blogcache ORDER BY date ASC LIMIT 1');
 		$idStmt->execute();
 		$S_id = $idStmt->fetchColumn();
 		echo($S_id);
 
-		$postStmt = $db->prepare('INSERT INTO blog (description, date, category, content, title, tags) VALUES (:desc, NOW(), :cat, :cont, :title, :tags)');
-		$postStmt->execute(array(':desc' => $U_description, ':cat' =>$U_category, ':cont' => $U_content, ':title' => $U_title, ':tags' => $U_tags));
+		$postStmt = $db->prepare('INSERT INTO blog (description, date, category, content, title, vanity, tags) VALUES (:desc, NOW(), :cat, :cont, :title, :vanity, :tags)');
+		$postStmt->execute(array(':desc' => $U_description, ':cat' =>$U_category, ':cont' => $U_content, ':title' => $U_title, ':vanity' => $U_vanity, ':tags' => $U_tags));
 		$postResult = $postStmt->rowCount();
 		$archiveid = $db->lastInsertId('id');
 		
-		$cacheStmt = $db->prepare('UPDATE blogcache SET description=:desc, date=NOW(), category=:cat, content=:cont, title=:title, tags=:tags, archiveid=:archiveid WHERE id=:id');
-		$cacheStmt->execute(array(':desc' => $U_description, ':cat' => $U_category, ':cont' => $U_content, ':title' => $U_title, ':tags' => $U_tags, ':archiveid' => $archiveid, ':id' => $S_id));
+		$cacheStmt = $db->prepare('UPDATE blogcache SET date=NOW(), category=:cat, content=:cont, title=:title, tags=:tags, archiveid=:archiveid WHERE id=:id');
+		$cacheStmt->execute(array(':cat' => $U_category, ':cont' => $U_content, ':title' => $U_title, ':tags' => $U_tags, ':archiveid' => $archiveid, ':id' => $S_id));
 		$cacheResult = $cacheStmt->rowCount();
 		
 		$linkStmt = $db->prepare('INSERT INTO links (link) VALUES (:link)');
