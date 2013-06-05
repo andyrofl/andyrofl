@@ -11,8 +11,8 @@
 <html>
 	<head>
 		<title>andy rofl's projects</title>
-		<link rel=StyleSheet href='../styles/main.css' type='text/css'>
-		<link rel=StyleSheet href='portfolio.css' type='text/css'>
+		<link rel=StyleSheet href='/styles/main.css' type='text/css'>
+		<link rel=StyleSheet href='/styles/portfolio.css' type='text/css'>
 		<meta charset='utf-8'>
 		<script type="text/javascript"> var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-33659175-1']); _gaq.push(['_trackPageview']); (function(){ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script>
 	</head>
@@ -47,6 +47,7 @@
 										else if($_GET['sort'] === 'opensource'){
 											echo('sort by open source');
 											//open source contributions
+											header('X-PHP-Response-Code: 404', true, 404); //TODO remove after the page drops
 										}
 										else if($_GET['sort'] === 'software'){
 											echo('sort by software');
