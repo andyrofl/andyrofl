@@ -2,14 +2,20 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.andyrofl\.com$ [NC]
 RewriteRule ^(.*)$ http://andyrofl.com/$1 [L,R=301]
 
+RewriteRule ^about/$ /about [R=301]
+RewriteRule ^about$ /pages/index.php
+RewriteRule ^contact/$ /contact [R=301]
+RewriteRule ^contact$ /pages/index.php
+RewriteRule ^about/$ /portfolio [R=301]
+RewriteRule ^about$ /pages/portfolio.php
+RewriteRule ^about/$ /search [R=301]
+RewriteRule ^about$ /pages/search.php
+RewriteRule ^sitemap/$ /sitemap [R=301]
+RewriteRule ^sitemap$ /sitemap.php
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ /blog/post.php?vanity=$1
 
 RewriteRule ^blog/$ /blog [R=301]
 RewriteRule ^blog$ /blog/index.php
-
-RewriteRule ^about/$ /about [R=301]
-RewriteRule ^about$ /about/index.php
-RewriteRule ^contact/$ /contact [R=301]
-RewriteRule ^contact$ /contact/index.php
