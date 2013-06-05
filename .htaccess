@@ -3,13 +3,13 @@ RewriteCond %{HTTP_HOST} ^www\.andyrofl\.com$ [NC]
 RewriteRule ^(.*)$ http://andyrofl.com/$1 [L,R=301]
 
 RewriteRule ^about/$ /about [R=301]
-RewriteRule ^about$ /pages/index.php
+RewriteRule ^about$ /pages/about.php
 RewriteRule ^contact/$ /contact [R=301]
-RewriteRule ^contact$ /pages/index.php
-RewriteRule ^about/$ /portfolio [R=301]
-RewriteRule ^about$ /pages/portfolio.php
-RewriteRule ^about/$ /search [R=301]
-RewriteRule ^about$ /pages/search.php
+RewriteRule ^contact$ /pages/contact.php
+RewriteRule ^portfolio/$ /portfolio [R=301]
+RewriteRule ^portfolio$ /pages/portfolio.php
+RewriteRule ^search/$ /search [R=301]
+RewriteRule ^search$ /pages/search.php
 RewriteRule ^sitemap/$ /sitemap [R=301]
 RewriteRule ^sitemap$ /sitemap.php
 
