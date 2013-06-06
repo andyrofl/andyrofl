@@ -11,11 +11,6 @@ RewriteRule ^portfolio$ /pages/portfolio.php
 RewriteRule ^search/$ /search [R=301]
 RewriteRule ^search$ /pages/search.php
 RewriteRule ^sitemap/$ /sitemap [R=301]
-RewriteRule ^sitemap$ /sitemap.php
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /blog/post.php?vanity=$1
-
+RewriteRule ^sitemap$ /pages/sitemap.php
 RewriteRule ^blog/$ /blog [R=301]
 RewriteRule ^blog$ /blog/index.php
