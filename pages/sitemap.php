@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include('sql.php');
+	include('../sql.php');
 
 	$db = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_read, $mysql_password_read);
 	
@@ -19,7 +19,7 @@
 	</head>
 	<body>
 		<div id='main'>
-			<?php include('template/header.php');?>
+			<?php include('../template/header.php');?>
 				<div id='content'>
 					<div id='left' class='piece'>
 						<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
@@ -44,7 +44,7 @@
 						<div id='rightbottom'></div>
 					</div>
 				</div>
-			<?php include('template/footer.php');?>
+			<?php include('../template/footer.php');?>
 		</div>
 	</body>
 </html>
