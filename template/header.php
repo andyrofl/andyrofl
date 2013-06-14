@@ -42,6 +42,21 @@
 	else if($_SESSION['account'] == 1){
 		include('modmenu.php');
 	}
+	
+	function doNotTrack(){
+		if(isset($_SERVER['HTTP_DNT'])){
+			if ($_SERVER['HTTP_DNT']==1)
+				return true;
+		}
+		elseif(function_exists('getallheaders')){
+			foreach(getallheaders() as $k => $v){
+				if(strtolower($k)==="dnt" && $v==1)
+					return true;
+			}
+		}
+		return false;
+	}
+	
 ?>
 <script>
 	(function() {
@@ -79,7 +94,14 @@
 				<div class="smalllink"><h4><a href="/contact">contact</a></h4></div>
 			</div>
 			<div id='search'>
-				<gcse:searchbox-only></gcse:searchbox-only>
+				<?php
+					if(doNotTrack()){
+						echo('<iframe src="http://duckduckgo.com/search.html?width=250&site=andyrofl.com&prefill=Search on DuckDuckGo.com" style="overflow:hidden;margin:0;padding:0;width:308px;height:40px;" frameborder="0"></iframe>');
+					}
+					else{
+						echo('<gcse:searchbox-only></gcse:searchbox-only>');
+					}
+				?>
 			</div>
 		</div>
 	</div>
