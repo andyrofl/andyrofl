@@ -4,14 +4,14 @@
 
 	$db = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_read, $mysql_password_read);
 	
-	$rawpagedata="section1 ||| section 2";
-	$pagedata = explode("|||", $rawpagedata);
-	
+	$pageStmt = $db->prepare('SELECT * FROM pages WHERE title=:title');
+	$pageStmt->execute(array(':title' => $_GET['title']));
+	$pageData = $pageStmt->fetch();
 ?>
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>{title}</title>
+		<title><?php echo($pageData['2']);?></title>
 		<link rel=StyleSheet href='/styles/main.css' type='text/css'>
 		<link rel=StyleSheet href='/styles/about.css' type='text/css'>
 		<meta charset='utf-8'>
@@ -25,7 +25,7 @@
 						<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
 						<div id='cmid'>
 							<div id='cmidrep'>
-								<?php echo($pagedata[0]);?>
+								<?php echo($pageData[0]);?>
 							</div>
 						<div id='cmidl'></div>
 						</div>
@@ -33,7 +33,7 @@
 					<div id='right' class='piece'>
 						<div id='righttop'></div>
 						<div id='rightmid'>
-							<?php echo($pagedata[1]);?>
+							<?php echo($pageData[1]);?>
 						</div>
 						<div id='rightbottom'></div>
 					</div>
