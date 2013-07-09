@@ -9,7 +9,7 @@
 	$resStmt->execute(array(':id' => '3'));
 	$header_res = $resStmt->fetch();
 	
-	$header_streams;
+	$game;
 	$header_date = date('Y-m-d H:i:s', time() - 3600);
 	if($header_res['lastupdate'] < $header_date){
 		function get_url_contents($url){
@@ -22,18 +22,22 @@
 			curl_close($crl);
 			return $ret;
 		}
-		$header_streams = json_decode(get_url_contents("https://api.twitch.tv/kraken/streams/andyrofl/"));
-		if($header_streams->game == null){
-			$header_streams->game = 'offline';
+		$streamData = json_decode(get_url_contents("https://api.twitch.tv/kraken/streams/andyrofl/"));
+		if($streamData->stream == null){
+			$game = 'offline';
+		}
+		else{
+			$stream = $streamData->stream;
+			$game = $stream->game;
 		}
 		
 		$dbWrite = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_write, $mysql_password_write);
 		$twitchStmt = $dbWrite->prepare('UPDATE resources SET text=:text, lastupdate=:update WHERE id=3');
-		$twitchStmt->execute(array(':text' => $header_streams->game, ':update' => date('Y-m-d H:i:s', time())));
+		$twitchStmt->execute(array(':text' => $game, ':update' => date('Y-m-d H:i:s', time())));
 		//TODO destroy dbwrite
 	}
 	else{
-		$header_streams->game = $header_res['text'];
+		$game = $header_res['text'];
 	}
 
 	if($_SESSION['account'] > 1){
@@ -78,11 +82,11 @@
 			<div class="largelink">
 				<a href="http://www.twitch.tv/andyrofl">
 					<?php
-						if($header_streams->game == 'offline'){
+						if($game == 'offline'){
 							echo("<span class='largeText'>TwitchTV</span> <span class='smallText'>(offline)</span>");
 						}
 						else{
-							echo("<span class='largeText'>TwitchTV</span> <span class='smallText'>(playing $header_streams->game)</span>");
+							echo("<span class='largeText'>TwitchTV</span> <span class='smallText'>(playing $game)</span>");
 						}
 					?>
 				</a>
