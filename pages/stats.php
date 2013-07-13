@@ -4,9 +4,8 @@
 
 	$db = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_read, $mysql_password_read);
 	
-	$pageStmt = $db->prepare('SELECT * FROM stats WHERE title=:title');
-	$pageStmt->execute(array(':title' => $_GET['title']));
-	$pageData = $pageStmt->fetch();
+	$statStmt = $db->prepare('SELECT * FROM stats');
+	$statStmt->execute(array(':title' => $_GET['title']));
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -24,7 +23,11 @@
 					<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
 					<div id='cmid'>
 						<div id='cmidrep'>
-							<?php echo($pageData[0]);?>
+							<?php
+								while($statData = $statStmt->fetch()){
+									echo($statData['stat'].' '.$statData['value'].'<br/>');
+								}
+							?>
 						</div>
 					<div id='cmidl'></div>
 					</div>
@@ -32,7 +35,7 @@
 				<div id='right' class='piece'>
 					<div id='righttop'></div>
 					<div id='rightmid'>
-						<?php echo($pageData[1]);?>
+						something should go here
 					</div>
 					<div id='rightbottom'></div>
 				</div>
