@@ -43,34 +43,34 @@
 	<body>
 		<div id='main'>
 			<?php include('../template/header.php');?>
-				<div id='content'>
-					<div id='left' class='piece'>
-						<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
-						<div id='cmid'>
-							<div id='cmidrep'>
-								<?php
-									if($valid){
-										echo('<div id="title">'.$post['title'].'</div>
-										<div id="postcontent">'.$post['content'].'</div>
-										<div id="timestamp">'.$post['date'].'</div>
-										<g:plusone href="http://andyrofl.com/blog/post.php?id='.$post['id'].'"></g:plusone>');
-									}
-									else{
-										echo('Error. No parameter or invalid parameter for post id. <a href="/blog/">Click here</a> to return to blog index');
-									}
-								?>
-							</div>
-							<div id='cmidl'></div>
+			<div id='content'>
+				<div id='left' class='piece'>
+					<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
+					<div id='cmid'>
+						<div id='cmidrep'>
+							<?php
+								if($valid){
+									echo('<div id="title">'.$post['title'].'</div>
+									<div id="postcontent">'.$post['content'].'</div>
+									<div id="timestamp">'.$post['date'].'</div>
+									<g:plusone href="http://andyrofl.com/blog/post.php?id='.$post['id'].'"></g:plusone>');
+								}
+								else{
+									echo('Error. No parameter or invalid parameter for post id. <a href="/blog/">Click here</a> to return to blog index');
+								}
+							?>
 						</div>
-					</div>
-					<div id='right' class='piece'>
-						<div id='righttop'></div>
-						<div id='rightmid'>
-							<?php include('sidebar.php');?>
-						</div>
-						<div id='rightbottom'></div>
+						<div id='cmidl'></div>
 					</div>
 				</div>
+				<div id='right' class='piece'>
+					<div id='righttop'></div>
+					<div id='rightmid'>
+						<?php include('sidebar.php');?>
+					</div>
+					<div id='rightbottom'></div>
+				</div>
+			</div>
 			<?php include('../template/footer.php');?>
 		</div>
 	</body>

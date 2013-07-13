@@ -4,18 +4,18 @@
 
 	$db = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_read, $mysql_password_read);
 	
-	$linkStmt = $db->prepare('SELECT * FROM links');
-	$linkStmt->execute();
+	$pageStmt = $db->prepare('SELECT * FROM stats WHERE title=:title');
+	$pageStmt->execute(array(':title' => $_GET['title']));
+	$pageData = $pageStmt->fetch();
 ?>
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>andy rofl</title>
-		<link rel=StyleSheet href='/styles/home.css' type='text/css'>
+		<title>andyrofl.com stats</title>
 		<link rel=StyleSheet href='/styles/main.css' type='text/css'>
+		<link rel=StyleSheet href='/styles/about.css' type='text/css'>
 		<meta charset='utf-8'>
-		<meta name="description" content="links to every page on andyrofl.com"/>
-	</head>
+		</head>
 	<body>
 		<div id='main'>
 			<?php include('../template/header.php');?>
@@ -24,21 +24,15 @@
 					<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
 					<div id='cmid'>
 						<div id='cmidrep'>
-							<?php
-								while($link = $linkStmt->fetch()){
-									echo('<a href="'.$link['link'].'">andyrofl.com'.$link['link'].'</a><br/>');
-								}
-							?>
+							<?php echo($pageData[0]);?>
 						</div>
-						<div id='cmidl'></div>
+					<div id='cmidl'></div>
 					</div>
-					<div id='cbot'><div id='cbotrep'></div><div id='cbotl'></div></div>
 				</div>
 				<div id='right' class='piece'>
 					<div id='righttop'></div>
 					<div id='rightmid'>
-						<a href='/about/'>about</a><br/>
-						<a href='/blog/'>blog</a>
+						<?php echo($pageData[1]);?>
 					</div>
 					<div id='rightbottom'></div>
 				</div>

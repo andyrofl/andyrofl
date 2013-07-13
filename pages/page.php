@@ -19,24 +19,24 @@
 	<body>
 		<div id='main'>
 			<?php include('../template/header.php');?>
-				<div id='content'>
-					<div id='left' class='piece'>
-						<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
-						<div id='cmid'>
-							<div id='cmidrep'>
-								<?php echo($pageData[0]);?>
-							</div>
-						<div id='cmidl'></div>
+			<div id='content'>
+				<div id='left' class='piece'>
+					<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
+					<div id='cmid'>
+						<div id='cmidrep'>
+							<?php echo($pageData[0]);?>
 						</div>
-					</div>
-					<div id='right' class='piece'>
-						<div id='righttop'></div>
-						<div id='rightmid'>
-							<?php echo($pageData[1]);?>
-						</div>
-						<div id='rightbottom'></div>
+					<div id='cmidl'></div>
 					</div>
 				</div>
+				<div id='right' class='piece'>
+					<div id='righttop'></div>
+					<div id='rightmid'>
+						<?php echo($pageData[1]);?>
+					</div>
+					<div id='rightbottom'></div>
+				</div>
+			</div>
 			<?php include('../template/footer.php');?>
 		</div>
 	</body>
