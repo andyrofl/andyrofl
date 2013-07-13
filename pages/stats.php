@@ -3,9 +3,6 @@
 	include('../sql.php');
 
 	$db = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_read, $mysql_password_read);
-	
-	$statStmt = $db->prepare('SELECT * FROM stats');
-	$statStmt->execute(array(':title' => $_GET['title']));
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -24,6 +21,7 @@
 					<div id='cmid'>
 						<div id='cmidrep'>
 							<?php
+								$statStmt = $db->query('SELECT * FROM stats');
 								while($statData = $statStmt->fetch()){
 									echo($statData['stat'].' '.$statData['value'].'<br/>');
 								}
