@@ -3,6 +3,8 @@ RewriteCond %{HTTP_HOST} ^www\.andyrofl\.com$ [NC]
 RewriteRule ^(.*)$ http://andyrofl.com/$1 [L,R=301]
 RewriteRule ^sitemap/$ /sitemap [R=301,L]
 RewriteRule ^sitemap$ /pages/sitemap.php
+RewriteRule ^stats/$ /stats [R=301,L]
+RewriteRule ^stats$ /pages/stats.php
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
