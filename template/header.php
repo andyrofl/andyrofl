@@ -5,6 +5,8 @@
 	if($resStmt == null){
 		$resStmt = $db->prepare('SELECT * FROM resources WHERE id=:id');
 	}
+	$dbWrite = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_write, $mysql_password_write);
+	$dbWrite->exec('UPDATE stats SET value=value+1 WHERE id=1');
 	
 	$resStmt->execute(array(':id' => '3'));
 	$header_res = $resStmt->fetch();
@@ -31,7 +33,6 @@
 			$game = $stream->game;
 		}
 		
-		$dbWrite = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_write, $mysql_password_write);
 		$twitchStmt = $dbWrite->prepare('UPDATE resources SET text=:text, lastupdate=:update WHERE id=3');
 		$twitchStmt->execute(array(':text' => $game, ':update' => date('Y-m-d H:i:s', time())));
 		//TODO destroy dbwrite
