@@ -2,6 +2,7 @@
 .git
 .buildpath
 .project
+.directory
 sql.php
 andyrofl.zip
 PrivacyPolicy.txt
