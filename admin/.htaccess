@@ -1,9 +1,9 @@
 RewriteEngine On
 
 RewriteBase /admin/
-RewriteRule ^database/$ database [R=301,L]
-RewriteRule ^database$ mini.php
-RewriteRule ^blog/$ blog [R=301,L]
-RewriteRule ^blog$ blog.php
-RewriteRule ^home/$ home [R=301,L]
-RewriteRule ^home$ home.php
+RewriteRule ^database/$ /admin/database [R=301,L]
+RewriteRule ^database$ /admin/mini.php
+RewriteRule ^blog/$ /admin/blog [R=301,L]
+RewriteRule ^blog$ /admin/blog.php
+RewriteRule ^home/$ /admin/home [R=301,L]
+RewriteRule ^home$ /admin/home.php
