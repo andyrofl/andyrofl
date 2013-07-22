@@ -26,22 +26,23 @@
 					<div id='cmid'>
 						<div id='cmidrep'>
 							<?php
-								if($_SESSION['login']){
-									echo("<div class='head'>blogpost</div>
-												<form method='post'>
-													<textarea rows='10' cols='100' name='postcontent'>Post content (html supported)</textarea>
-													<textarea rows='3' cols='100' name='description'>Description</textarea><br/>
-													<input type='text' name='category' value='category'/>
-													<input type='text' name='title' value='title'/>
-													<input type='text' name='vanity' value='vanity url'/>
-													<input type='text' name='tags' value='tags'/>
-													<input type='submit' value='Post'/>
-												</form>");
-								}
-								else{
-									echo("invalid credentials. <a href='/admin/'>return to admin panel.</a>");
+								if(!$_SESSION['login']){
+									echo("invalid credentials. <a href='/admin/'>return to admin panel.</a></div></div><div id='cmidl'></div><div id='cbot'><div id='cbotrep'></div><div id='cbotl'></div></div></div><div id='right' class='piece'><div id='righttop'></div><div id='rightmid'></div><div id='rightbottom'></div></div></div>");
+									include('../template/footer.php');
+									echo('</div></body></html>');
+									exit;
 								}
 							?>
+							<div class='head'>blogpost</div>
+							<form method='post'>
+								<textarea rows='10' cols='100' name='postcontent'>Post content (html supported)</textarea>
+								<textarea rows='3' cols='100' name='description'>Description</textarea><br/>
+								<input type='text' name='category' value='category'/>
+								<input type='text' name='title' value='title'/>
+								<input type='text' name='vanity' value='vanity url'/>
+								<input type='text' name='tags' value='tags'/>
+								<input type='submit' value='Post'/>
+							</form>
 						</div>
 					</div>
 					<div id='cmidl'></div>
@@ -50,11 +51,7 @@
 				<div id='right' class='piece'>
 					<div id='righttop'></div>
 						<div id='rightmid'>
-							<a href='blog.php'>blog</a><br/>
-							<a href='inventory.php'>inventory</a><br/>
-							<a href='portfolio.php'>portfolio</a><br/>
-							<a href='users.php'>manage users</a><br/>
-							<a href='database.php'>manage database</a>
+							<?php include('sidebar.php');?>
 						</div>
 					<div id='rightbottom'></div>
 				</div>

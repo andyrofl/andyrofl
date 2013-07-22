@@ -35,35 +35,30 @@
 					<div id='cmid'>
 						<div id='cmidrep'>
 							<?php
-								if($_SESSION['login']){
-									echo("<form action='inventory.php' method='post'>
-												<input type='text' name='item' value='item'/>
-												<input type='text' name='location' value='location'/>
-												<input type='text' name='serial' value='serial/cd-key'/>
-												<input type='text' name='category' value='category'/>
-												<input type='text' name='value' value='value'></input>
-												<input type='submit' value='submit'/>
-											</form>
-										</div>
-									</div>");
+								if(!$_SESSION['login']){
+									echo("invalid credentials. <a href='/admin/'>return to admin panel.</a></div></div><div id='cmidl'></div><div id='cbot'><div id='cbotrep'></div><div id='cbotl'></div></div></div><div id='right' class='piece'><div id='righttop'></div><div id='rightmid'></div><div id='rightbottom'></div></div></div>");
+									include('../template/footer.php');
+									echo('</div></body></html>');
+									exit;
 								}
-								else{
-									echo("invalid credentials. <a href='/admin/'>return to admin panel.</a>");
-								}
-								?>
-							</div>
+							?>
+							<form action='inventory.php' method='post'>
+								<input type='text' name='item' value='item'/>
+								<input type='text' name='location' value='location'/>
+								<input type='text' name='serial' value='serial/cd-key'/>
+								<input type='text' name='category' value='category'/>
+								<input type='text' name='value' value='value'></input>
+								<input type='submit' value='submit'/>
+							</form>
 						</div>
+					</div>
 					<div id='cmidl'></div>
 					<div id='cbot'><div id='cbotrep'></div><div id='cbotl'></div></div>
 				</div>
 				<div id='right' class='piece'>
 					<div id='righttop'></div>
 						<div id='rightmid'>
-							<a href='blog.php'>blog</a><br/>
-							<a href='inventory.php'>inventory</a><br/>
-							<a href='portfolio.php'>portfolio</a><br/>
-							<a href='users.php'>manage users</a><br/>
-							<a href='database.php'>manage database</a>
+							<?php include('sidebar.php');?>
 						</div>
 					<div id='rightbottom'></div>
 				</div>

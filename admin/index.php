@@ -42,41 +42,42 @@
 					<div id='cmid'>
 						<div id='cmidrep'>
 							<?php
-								if($_SESSION['login']){
-									echo("<div class='module'>
-					<div class='head'>upload</div>
-						<form>
-							<input type='file' value='upload'>
-							<select value='type'>
-								<option>image</option>
-								<option>video</option>
-								<option>file</option>
-							</select>
-							<select value='visibility'>
-								<option>public</option>
-								<option>private</option>
-							</select>
-							<input type='hidden' name='submittype' value='uploadpic'/>
-							<input type='submit' value='Upload'/>
-						</form>
-					</div>
-				<div class='module'>
-				<div class='head'>blog</div>
-					<form method='post'>
-						<textarea rows='8' cols='100' name='postcontent'>Post content (html supported)</textarea>
-						<textarea rows='3' cols='100' name='description'>Description</textarea><br/>
-						<input type='text' name='category' value='category'/>
-						<input type='text' name='title' value='title'/>
-						<input type='text' name='tags' value='tags'/>
-						<input type='hidden' name='submittype' value='blogpost'/>
-						<input type='submit' value='Post'/>
-					</form>
-				</div>");
-								}
-								else{
-									echo("enter password to continue: <form method='post'><input type='text' name='user'/><input type='password' name='pass'/><input type='submit' value='Login'/></form>");
+								if(!$_SESSION['login']){
+									echo("enter password to continue: <form method='post'><input type='text' name='user'/><input type='password' name='pass'/><input type='submit' value='Login'/></form></div></div><div id='cmidl'></div><div id='cbot'><div id='cbotrep'></div><div id='cbotl'></div></div></div><div id='right' class='piece'><div id='righttop'></div><div id='rightmid'></div><div id='rightbottom'></div></div></div>");
+									include('../template/footer.php');
+									echo('</div></body></html>');
+									exit;
 								}
 							?>
+							<div class='module'>
+								<div class='head'>upload</div>
+								<form>
+									<input type='file' value='upload'>
+									<select value='type'>
+										<option>image</option>
+										<option>video</option>
+										<option>file</option>
+									</select>
+									<select value='visibility'>
+										<option>public</option>
+										<option>private</option>
+									</select>
+									<input type='hidden' name='submittype' value='uploadpic'/>
+									<input type='submit' value='Upload'/>
+								</form>
+							</div>
+							<div class='module'>
+								<div class='head'>blog</div>
+								<form method='post'>
+									<textarea rows='8' cols='100' name='postcontent'>Post content (html supported)</textarea>
+									<textarea rows='3' cols='100' name='description'>Description</textarea><br/>
+									<input type='text' name='category' value='category'/>
+									<input type='text' name='title' value='title'/>
+									<input type='text' name='tags' value='tags'/>
+									<input type='hidden' name='submittype' value='blogpost'/>
+									<input type='submit' value='Post'/>
+								</form>
+							</div>
 						</div>
 						<div id='cmidl'></div>
 					</div>
@@ -84,11 +85,7 @@
 				<div id='right' class='piece'>
 					<div id='righttop'></div>
 						<div id='rightmid'>
-							<a href='blog.php'>blog</a><br/>
-							<a href='inventory.php'>inventory</a><br/>
-							<a href='portfolio.php'>portfolio</a><br/>
-							<a href='users.php'>manage users</a><br/>
-							<a href='database.php'>manage database</a>
+							<?php include('sidebar.php');?>
 						</div>
 					<div id='rightbottom'></div>
 				</div>
