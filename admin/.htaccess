@@ -7,3 +7,9 @@ RewriteRule ^blog/$ /admin/blog [R=301,L]
 RewriteRule ^blog$ /admin/blog.php
 RewriteRule ^home/$ /admin/home [R=301,L]
 RewriteRule ^home$ /admin/home.php
+RewriteRule ^inventory/$ /admin/inventory [R=301,L]
+RewriteRule ^inventory$ /admin/inventory.php
+RewriteRule ^portfolio/$ /admin/portfolio [R=301,L]
+RewriteRule ^portfolio$ /admin/portfolio.php
+RewriteRule ^users/$ /admin/users [R=301,L]
+RewriteRule ^users$ /admin/users.php
