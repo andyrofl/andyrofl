@@ -27,24 +27,27 @@
 					<div id='cmid'>
 						<div id='cmidrep'>
 							<?php
-								if($_SESSION['login']){
-									echo("<div class='module'>
-											<div class='head'>facebook</head>
-											//facebook notifs
+								if(!$_SESSION['login']){
+									echo("invalid credentials. <a href='/admin/'>return to admin panel.</a></div>
 										</div>
-										<div class='module'>
-											<div class='head'>theoldreader</head>
-											//old reader posts
+										<div id='cmidl'></div>
+										<div id='cbot'><div id='cbotrep'></div><div id='cbotl'></div></div>
 										</div>
-											<div class='module'>
-											<div class='head'>email</head>
-											//gmail, andyrofl.com, school
+										<div id='right' class='piece'>
+										<div id='righttop'></div>
+										<div id='rightmid'>
+										</div>
+										<div id='rightbottom'></div>
+										</div>
 										</div>");
-								}
-								else{
-									echo("invalid credentials. <a href='/admin/'>return to admin panel.</a>");
+										include('../template/footer.php');
+												echo('</div>
+											</body>
+										</html>');
+									exit;
 								}
 							?>
+							//modules
 						</div>
 					</div>
 					<div id='cmidl'></div>
