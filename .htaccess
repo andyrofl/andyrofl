@@ -1,11 +1,29 @@
+Options -Indexes
+
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.andyrofl\.com$ [NC]
 RewriteRule ^(.*)$ http://andyrofl.com/$1 [L,R=301]
-RewriteRule ^sitemap/$ /sitemap [R=301,L]
+
+RewriteRule ^(.*)/+$ $1 [R=301,L]
+
 RewriteRule ^sitemap$ /pages/sitemap.php
-RewriteRule ^stats/$ /stats [R=301,L]
 RewriteRule ^stats$ /pages/stats.php
+RewriteRule ^blog$ /blog/index.php
+RewriteRule ^arcade$ /arcade/index.php
+RewriteRule ^portfolio$ /portfolio/index.php
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /pages/page.php?title=$1
+RewriteRule ^blog/(.*)$ /blog/post.php?vanity=$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^portfolio/(.*)$ /portfolio/index.php?vanity=$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^arcade/(.*)$ /arcade/game.php?vanity=$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /pages/page.php?title=$1 [L]
