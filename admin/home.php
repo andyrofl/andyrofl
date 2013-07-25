@@ -2,12 +2,6 @@
 	session_start();
 	include('../sql.php');
 	include('sql.php');
-	
-	if(array_key_exists('postcontent', $_POST) && $_SESSION['login']){
-		$dbpub = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_write, $mysql_password_write);
-		include('scripts/blogfunctions.php');
-		echo(postBlog($_POST['description'], $_POST['category'], $_POST['postcontent'], $_POST['title'], $_POST['vanity'], $_POST['tags'], $dbpub));
-	}
 ?>
 <!DOCTYPE HTML>
 <html>
