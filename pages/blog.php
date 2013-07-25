@@ -36,7 +36,7 @@
 				<div id='right' class='piece'>
 					<div id='righttop'></div>
 					<div id='rightmid'>
-						<?php include('sidebar.php');?>
+						<?php include('../template/sidebar.php');?>
 					</div>
 					<div id='rightbottom'></div>
 				</div>

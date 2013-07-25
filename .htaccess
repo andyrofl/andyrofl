@@ -8,21 +8,21 @@ RewriteRule ^(.*)/+$ $1 [R=301,L]
 
 RewriteRule ^sitemap$ /pages/sitemap.php
 RewriteRule ^stats$ /pages/stats.php
-RewriteRule ^blog$ /blog/index.php
-RewriteRule ^arcade$ /arcade/index.php
-RewriteRule ^portfolio$ /portfolio/index.php
+RewriteRule ^blog$ /pages/blog.php
+RewriteRule ^arcade$ /pages/arcade.php
+RewriteRule ^portfolio$ /pages/portfolio.php
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^blog/(.*)$ /blog/post.php?vanity=$1 [L]
+RewriteRule ^blog/(.*)$ /pages/post.php?vanity=$1 [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^portfolio/(.*)$ /portfolio/index.php?vanity=$1 [L]
+RewriteRule ^portfolio/(.*)$ /pages/portfolio.php?vanity=$1 [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^arcade/(.*)$ /arcade/game.php?vanity=$1 [L]
+RewriteRule ^arcade/(.*)$ /pages/game.php?vanity=$1 [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
