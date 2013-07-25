@@ -33,15 +33,17 @@
 											echo("<p>This game requires a higher access level.</p>");
 										}
 										else{
-											if($game['type'] == 0){
-												echo('<p>Coming soon</p>');
-											}
-											else if($game['type'] == 1){
-												echo('<object type="application/x-java-applet" height="'.$game['height'].'" width="'.$game['width'].'">
-												<param name="code" value="'.$game['code'].'" />
-												<param name="archive" value="'.$game['filename'].'" />
-												Applet failed to run.  No Java plug-in was found.
-												</object>');
+											switch($game['type']){
+												case 0:{
+													echo('<p>Coming soon</p>');
+												}
+												case 1:{
+													echo('<object type="application/x-java-applet" height="'.$game['height'].'" width="'.$game['width'].'">
+														<param name="code" value="'.$game['code'].'" />
+														<param name="archive" value="'.$game['filename'].'" />
+														Applet failed to run.  No Java plug-in was found.
+														</object>');
+												}
 											}
 											/**
 											 * 0 Unreleased
@@ -51,6 +53,8 @@
 											 * 4 Silverlight
 											 * 5 Shockwave
 											 * 6 HTML5
+											 * 7 Direct download
+											 * 8 External site
 											 */
 										}
 									?>
