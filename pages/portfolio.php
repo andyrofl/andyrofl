@@ -11,8 +11,8 @@
 <html>
 	<head>
 		<title>andy rofl's projects</title>
-		<link rel=StyleSheet href='/styles/main.css' type='text/css'>
-		<link rel=StyleSheet href='/styles/portfolio.css' type='text/css'>
+		<link rel=StyleSheet href='/cdn/styles/main.css' type='text/css'>
+		<link rel=StyleSheet href='/cdn/styles/portfolio.css' type='text/css'>
 		<meta charset='utf-8'>
 	</head>
 	<body>

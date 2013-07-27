@@ -12,7 +12,7 @@
 <html>
 	<head>
 		<title>admin panel</title>
-		<link rel=StyleSheet href='../styles/main.css' type='text/css'>
+		<link rel=StyleSheet href='/cdn/styles/main.css' type='text/css'>
 		<link rel=StyleSheet href='admin.css' type='text/css'>
 		<meta charset='utf-8'>
 	</head>

@@ -22,7 +22,7 @@
 <html>
 	<head>
 		<title>admin | portfolio</title>
-		<link rel=StyleSheet href='../styles/main.css' type='text/css'>
+		<link rel=StyleSheet href='/cdn/styles/main.css' type='text/css'>
 		<link rel=StyleSheet href='admin.css' type='text/css'>
 		<meta charset='utf-8'>
 	</head>
