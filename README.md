@@ -19,3 +19,10 @@ requires sql.php in the root and another in /admin/
 
 required tables for public database (root sql) are blog, blogcache, games, portfolio, and resources.
 required table for private database (admin sql) is users
+
+directory
+===
+/pages/ contains pages
+/cdn/ contains images, scripts, styles, and other static content. Storing these in a different directory makes it easier to serve them from another domain or subdomain.
+/admin/ contains the admin pages and is a separate directory for the same reason as /cdn/
+/tempate/ contains headers, footers, and other content that is used in multiple pages
