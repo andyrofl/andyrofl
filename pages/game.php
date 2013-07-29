@@ -3,8 +3,8 @@
 	include('../sql.php');
 	$dbpub = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_read, $mysql_password_read);
 	
-	$gameStmt = $dbpub->prepare('SELECT * FROM games WHERE id=:id');
-	$gameStmt->execute(array(':id' => $_GET['id']));
+	$gameStmt = $dbpub->prepare('SELECT * FROM games WHERE vanity=:vanity');
+	$gameStmt->execute(array(':id' => $_GET['vanity']));
 	$game = $gameStmt->fetch();
 ?>
 <!DOCTYPE HTML>
@@ -69,7 +69,7 @@
 									<div id='info'>
 										<?PHP echo($game['description']);?>
 									</div>
-									<?php echo('<g:plusone href="http://andyrofl.com/arcade/game.php?id='.$game['id'].'"></g:plusone>'); ?>
+									<?php echo('<g:plusone href="http://andyrofl.com/arcade/'.$game['vanity'].'"></g:plusone>'); ?>
 								</div>
 							</div>
 						</div>
