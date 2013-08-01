@@ -44,7 +44,7 @@
 							?>
 							<div class='module'>
 								<form action='portfolio.php' method='post'>
-									<textarea rows='3' cols='100' name='description'>description</textarea><br/>
+									<textarea rows='3' cols='80' name='description'>description</textarea><br/>
 									<input type='text' name='item' value='project'/>
 									<input type='text' name='category' value='category'/>
 									<input type='text' name='status' value='development status'/>

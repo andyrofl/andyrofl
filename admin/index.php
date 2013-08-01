@@ -69,8 +69,8 @@
 							<div class='module'>
 								<div class='head'>blog</div>
 								<form method='post'>
-									<textarea rows='8' cols='100' name='postcontent'>Post content (html supported)</textarea>
-									<textarea rows='3' cols='100' name='description'>Description</textarea><br/>
+									<textarea rows='8' cols='80' name='postcontent'>Post content (html supported)</textarea>
+									<textarea rows='3' cols='80' name='description'>Description</textarea><br/>
 									<input type='text' name='category' value='category'/>
 									<input type='text' name='title' value='title'/>
 									<input type='text' name='tags' value='tags'/>
