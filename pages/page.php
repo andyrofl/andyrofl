@@ -13,7 +13,6 @@
 	<head>
 		<title><?php echo($pageData['2']);?></title>
 		<link rel=StyleSheet href='/cdn/styles/main.css' type='text/css'>
-		<link rel=StyleSheet href='/cdn/styles/about.css' type='text/css'>
 		<meta charset='utf-8'>
 	</head>
 	<body>

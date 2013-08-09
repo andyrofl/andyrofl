@@ -9,7 +9,6 @@
 	<head>
 		<title>andyrofl.com stats</title>
 		<link rel=StyleSheet href='/cdn/styles/main.css' type='text/css'>
-		<link rel=StyleSheet href='/cdn/styles/about.css' type='text/css'>
 		<meta charset='utf-8'>
 		</head>
 	<body>

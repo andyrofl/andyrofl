@@ -27,7 +27,9 @@
 									exit;
 								}
 							?>
-							//modules
+							<div class='module'>FACEBOOK</div>
+							<div class='module'>GITHUB</div>
+							<div class='module'>EMAIL</div>
 						</div>
 					</div>
 					<div id='cmidl'></div>

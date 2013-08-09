@@ -11,7 +11,6 @@
 <html>
 	<head>
 		<title>andy rofl</title>
-		<link rel=StyleSheet href='/cdn/styles/home.css' type='text/css'>
 		<link rel=StyleSheet href='/cdn/styles/main.css' type='text/css'>
 		<meta charset='utf-8'>
 		<meta name="description" content="links to every page on andyrofl.com"/>

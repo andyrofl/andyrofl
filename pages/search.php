@@ -10,7 +10,6 @@
 <html>
 	<head>
 		<title>search</title>
-		<link rel=StyleSheet href='/cdn/styles/home.css' type='text/css'>
 		<link rel=StyleSheet href='/cdn/styles/main.css' type='text/css'>
 		<meta charset='utf-8'>
 		<meta name='description' content='search results page for andyrofl.com'/>
