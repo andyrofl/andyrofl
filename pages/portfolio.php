@@ -25,45 +25,18 @@
 						<div id='cmidrep'>
 							<div id='highlights'>
 								<?php
-									if($_GET['sort'] !== 'skills'){
-										while($project = $projectStmt->fetch()){
-											echo "<div class='project'><img width='60' height='40' src='img/".$project['item'].".png'>".$project['item']."</div>";
-										}
+									while($project = $projectStmt->fetch()){
+										echo "<div class='project'><img width='60' height='40' src='img/".$project['item'].".png'>".$project['item']."</div>";
 									}
 								?>
 							</div>
 							<?php
 								if(array_key_exists('sort', $_GET)){
-									if($_GET['sort'] === 'game'){
-										//$res = mysql_fetch_row(mysql_query('SELECT game FROM resources ORDER BY type'));
-										echo('sort by game');
-										//games
-									}
-									else if($_GET['sort'] === 'level'){
-										echo('sort by level');
-										//maps / level sets
-									}
-									else if($_GET['sort'] === 'opensource'){
-										echo('sort by open source');
-										//open source contributions
-										header('X-PHP-Response-Code: 404', true, 404); //TODO remove after the page drops
-									}
-									else if($_GET['sort'] === 'software'){
-										echo('sort by software');
-										//software
-									}
-									else if($_GET['sort'] === 'hardware'){
-										echo('sort by hardware');
-										//hardware
-									}
-									else if($_GET['sort'] === 'skills'){
-										$skillsStmt = $db->prepare('SELECT * FROM resources WHERE id=2');
-										$skillsStmt->execute();
-										$skills = $skillsStmt->fetch();
-										echo($skills[1]);
-									}
-									else{
-										echo('something went wrong. Email me at admin@andyrofl.com');
+									$projectStmt = $db->prepare('SELECT * FROM portfolio WHERE category=:category LIMIT 5');
+									$projectStmt->execute(array(':category' => $_GET['sort']));
+									
+									while($project = $projectStmt->fetch()){
+										echo "<div class='project'><img width='60' height='40' src='img/".$project['item'].".png'>".$project['item']."</div>";
 									}
 								}
 							?>
@@ -72,12 +45,11 @@
 					</div>
 				</div>
 				<div id='right' class='piece'>
-					<div class='filterselect'><a href='index.php?sort=game'>Games</a></div>
-					<div class='filterselect'><a href='index.php?sort=level'>Maps / Level Sets</a></div>
-					<div class='filterselect'><a href='index.php?sort=opensource'>Open Source Contributions</a></div>
-					<div class='filterselect'><a href='index.php?sort=software'>Software</a></div>
-					<div class='filterselect'><a href='index.php?sort=hardware'>Hardware</a></div>
-					<div class='filterselect'><a href='index.php?sort=skills'>My skills</a></div>
+					<div class='filterselect'><a href='/portfolio/game'>Games</a></div>
+					<div class='filterselect'><a href='/portfolio/level'>Maps / Level Sets</a></div>
+					<div class='filterselect'><a href='/portfolio/opensource'>Open Source Contributions</a></div>
+					<div class='filterselect'><a href='/portfolio/software'>Software</a></div>
+					<div class='filterselect'><a href='/portfolio/hardware'>Hardware</a></div>
 				</div>
 			</div>
 			<?php include('../template/footer.php');?>
