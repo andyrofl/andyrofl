@@ -1,6 +1,5 @@
 ignore
 /admin/*
-/blog/sidebar.php
 /cdn/game/content/*
-/search/*
+/search
 /template/*
