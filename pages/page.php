@@ -8,7 +8,7 @@
 	$pageStmt->execute(array(':title' => $_GET['title']));
 	$pageData = $pageStmt->fetch();
 
-		if($post == null){
+		if($pageData == null){
 		/**
 		 * Compatibility for PHP 4.3 - 5.3
 		 */
