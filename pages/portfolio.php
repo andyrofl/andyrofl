@@ -26,7 +26,7 @@
 							<div id='highlights'>
 								<?php
 									while($project = $projectStmt->fetch()){
-										echo "<div class='project'><img width='60' height='40' src='img/".$project['item'].".png'>".$project['item']."</div>";
+										echo "<div class='project'><img width='60' height='40' src='/cdn/games/".$project['vanity']."_0.png'>".$project['title']."</div>";
 									}
 								?>
 							</div>
@@ -34,11 +34,14 @@
 								if(array_key_exists('sort', $_GET)){
 									$projectStmt = $db->prepare('SELECT * FROM portfolio WHERE category=:category LIMIT 5');
 									$projectStmt->execute(array(':category' => $_GET['sort']));
-									
-									while($project = $projectStmt->fetch()){
-										echo "<div class='project'><img width='60' height='40' src='img/".$project['item'].".png'>".$project['item']."</div>";
-									}
 								}
+								else{
+									$projectStmt = $db->prepare('SELECT * FROM portfolio ORDER BY id DESC LIMIT 5');
+									$projectStmt->execute();
+								}
+									while($project = $projectStmt->fetch()){
+										echo "<div class='project'><img width='60' height='40' src='/cdn/games/".$project['vanity']."_0.png'>".$project['title']."</div>";
+									}
 							?>
 						</div>
 						<div id='cmidl'></div>
