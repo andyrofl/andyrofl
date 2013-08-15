@@ -35,7 +35,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title><?php if($valid){echo($pageData['2']);}else{echo('page not found');)}?></title>
+		<title><?php if($valid){echo($pageData['2']);}else{echo('page not found');}?></title>
 		<link rel=StyleSheet href='/cdn/styles/main.css' type='text/css'>
 		<meta charset='utf-8'>
 	</head>
