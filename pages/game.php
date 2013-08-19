@@ -4,7 +4,7 @@
 	$dbpub = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_read, $mysql_password_read);
 	
 	$gameStmt = $dbpub->prepare('SELECT * FROM games WHERE vanity=:vanity');
-	$gameStmt->execute(array(':id' => $_GET['vanity']));
+	$gameStmt->execute(array(':vanity' => $_GET['vanity']));
 	$game = $gameStmt->fetch();
 ?>
 <!DOCTYPE HTML>

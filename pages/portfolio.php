@@ -48,11 +48,15 @@
 					</div>
 				</div>
 				<div id='right' class='piece'>
-					<div class='filterselect'><a href='/portfolio/game'>Games</a></div>
-					<div class='filterselect'><a href='/portfolio/level'>Maps / Level Sets</a></div>
-					<div class='filterselect'><a href='/portfolio/opensource'>Open Source Contributions</a></div>
-					<div class='filterselect'><a href='/portfolio/software'>Software</a></div>
-					<div class='filterselect'><a href='/portfolio/hardware'>Hardware</a></div>
+					<div id='righttop'></div>
+					<div id='rightmid'>
+						<div class='filterselect'><a href='/portfolio/game'>Games</a></div>
+						<div class='filterselect'><a href='/portfolio/level'>Maps / Level Sets</a></div>
+						<div class='filterselect'><a href='/portfolio/opensource'>Open Source Contributions</a></div>
+						<div class='filterselect'><a href='/portfolio/software'>Software</a></div>
+						<div class='filterselect'><a href='/portfolio/hardware'>Hardware</a></div>
+					</div>
+					<div id='rightbottom'></div>
 				</div>
 			</div>
 			<?php include('../template/footer.php');?>
