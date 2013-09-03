@@ -4,11 +4,11 @@
 
 	$db = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_read, $mysql_password_read);
 	
-	$resStmt = $db->prepare('SELECT * FROM resources WHERE id=:id');
+	$slideStmt = $db->prepare('SELECT * FROM slideshow');
 	$blogStmt = $db->prepare('SELECT * FROM blogcache ORDER BY date DESC LIMIT 3');
-	$resStmt->execute(array(':id' => '1'));
+	
+	$slideStmt->execute();
 	$blogStmt->execute();
-	$res = $resStmt->fetch();
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -27,8 +27,12 @@
 					<div id='ctop'><div id='ctoprep' class='piece'></div><div id='ctopl' class='piece'></div></div>
 					<div id='cmid'>
 						<div id='cmidrep'>
-							<div id='shortbio'>
-								<span><?php echo($res[1])?></span>
+							<div id='slideshow'>
+								<?php
+									while($slide = $slideStmt->fetch()){
+										echo('<a href="'.$slide['link'].'"><img src="'.$slide['src'].'"/></a>');
+									}
+								?>
 							</div>
 							<div id='recentposts'>
 								<?php

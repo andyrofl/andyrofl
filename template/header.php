@@ -2,9 +2,8 @@
 	if(!isset($db)){
 		$db = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_read, $mysql_password_read);
 	}
-	if($resStmt == null){
-		$resStmt = $db->prepare('SELECT * FROM resources WHERE id=:id');
-	}
+	$resStmt = $db->prepare('SELECT * FROM resources WHERE id=:id');
+
 	$dbWrite = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_write, $mysql_password_write);
 	$dbWrite->exec('UPDATE stats SET value=value+1 WHERE id=1');
 	
