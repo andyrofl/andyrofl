@@ -4,8 +4,19 @@
 	
 	$db = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_read, $mysql_password_read);
 	
-	$blogStmt = $db->prepare('SELECT * FROM blog ORDER BY date DESC LIMIT 4');
-	$blogStmt->execute();
+	if(array_key_exists('category', $_GET)){
+		blogStmt = $db->prepare('SELECT * FROM blog WHERE category=`:cat` ORDER BY date DESC LIMIT 4');
+		$blogStmt->execute(array(':cat' => $_GET['category']));
+	}
+	else if(array_key_exists('tag', $_GET)){
+		blogStmt = $db->prepare('SELECT * FROM tags WHERE tag=`:tag` ORDER BY date DESC LIMIT 4');
+		$blogStmt->execute(array(':tag' => $_GET['tag']));
+		//TODO get actual data from tags
+	}
+	else{
+		$blogStmt = $db->prepare('SELECT * FROM blog ORDER BY date DESC LIMIT 4');
+		$blogStmt->execute();
+	}
 ?>
 <!DOCTYPE HTML>
 <html>
