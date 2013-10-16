@@ -5,7 +5,7 @@
 	$db = new PDO('mysql:host='.$mysql_host.';dbname='.$mysql_database.';charset=utf8', $mysql_user_read, $mysql_password_read);
 	
 	$slideStmt = $db->prepare('SELECT * FROM slideshow');
-	$blogStmt = $db->prepare('SELECT * FROM blogcache ORDER BY date DESC LIMIT 3');
+	$blogStmt = $db->prepare('SELECT * FROM blog ORDER BY date DESC LIMIT 3');
 	
 	$slideStmt->execute();
 	$blogStmt->execute();
@@ -38,7 +38,7 @@
 								<?php
 									while($posts = $blogStmt->fetch()){
 										echo("<div class='post'>
-												<h1><a href='/blog/".$posts['archiveurl']."'>".$posts['title']."</a></h1>
+												<h1><a href='/blog/".$posts['vanity']."'>".$posts['title']."</a></h1>
 												<p class='postcontent'>".$posts['content']."</p>
 												<span class='dateposted'>".$posts['date']."</span>
 											</div>");

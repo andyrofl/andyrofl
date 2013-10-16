@@ -17,26 +17,12 @@
 		$postStmt = $db->prepare('INSERT INTO blog (description, date, category, content, title, vanity, tags) VALUES (:desc, NOW(), :cat, :cont, :title, :vanity, :tags)');
 		$postStmt->execute(array(':desc' => $U_description, ':cat' =>$U_category, ':cont' => $U_content, ':title' => $U_title, ':vanity' => $U_vanity, ':tags' => $U_tags));
 		$postResult = $postStmt->rowCount();
-		$archiveid = $db->lastInsertId('id');
-		
-		$cacheStmt = $db->prepare('UPDATE blogcache SET date=NOW(), category=:cat, content=:cont, title=:title, tags=:tags, archiveid=:archiveid WHERE id=:id');
-		$cacheStmt->execute(array(':cat' => $U_category, ':cont' => $U_content, ':title' => $U_title, ':tags' => $U_tags, ':archiveid' => $archiveid, ':id' => $S_id));
-		$cacheResult = $cacheStmt->rowCount();
 		
 		$linkStmt = $db->prepare('INSERT INTO links (link) VALUES (:link)');
 		$linkStmt->execute(array(':link' => '/blog/post.php?id='.$S_id));
 		$linkResult = $postStmt->rowCount();
-		
-		if($cacheResult == 1 && $postResult == 1){
-			return 'post success';
-		}
-		else if($cacheResult){
-			return 'blog post returned '.$postResult.' changed rows';
-		}
-		else if($postResult){
-			return 'cache post returned '.$cacheResult.' changed rows';
-		}
-		return 'blog post returned '.$postResult.' changed rows and cache post returned '.$cacheResult.' changed rows';
+
+		return 'blog post returned '.$postResult.' changed rows';
 	}
 	/**
 	 * Delete a post with the given title
